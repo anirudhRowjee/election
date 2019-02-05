@@ -43,3 +43,8 @@ class VoterTypes(models.Model):
     def __str__(self):
         return self.name
 
+
+class VoterLists(models.Model):
+    filename = models.CharField(max_length=100)
+    file = models.FileField(upload_to='media/voterlists/')
+    migrated = models.DateTimeField(auto_now=True)

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+    </h1>
+    {%  if voters.count == 0 %}
+        <form method="POST" action="{% url 'voter_ops' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <br>
+            <p>Please submit a CSV file with the following fields (in order) for every voter- </p>
+            <p>Voter ID , Name, Class </p>
+            <p style="border:2px red solid">
+                *NOTE : for any group, if a class does not exist, then the name of the group will serve as the class.
+                THIS FIELD CAN NOT BE LEFT NULL.
+            </p>
+            {%  for VoterTypes in votertypes.all %}
+                <input type="radio" name="type" value="{{ VoterTypes.value  }}" required="required"> {{ VoterTypes.name }} <br>
+            {%  endfor %}
+            <br>
+            <p> Please attach the necessary CSV file - ></p>
+            <input type="file" name="csv_source">
+            <br>
+        <br>
+            <input class='btn btn-primary' type="submit" value="Populate Database">
+        </form>
+    {%  else %}
+        <table class="text-center">
+            <tr>
+                <th> VOTER ID </th>
+                <th> VOTER NAME </th>
+                <th> CLASS </th>
+                <th> HAS VOTED</th>
+            </tr>
+            {%  for voter in voters.all %}
+                <tr>
+                    <td> {{ voter.voter_id }}</td>
+                    <td> {{ voter.name }}</td>
+                    <td> {{ voter.voter_class }}</td>
+                    <td> {{ voter.has_voted }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+    {%  endif  %}
+    </div>
+
+{% endblock %}
