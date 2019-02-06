@@ -1,10 +1,17 @@
-{% extends 'base.html' %}
+{% extends 'admin-base.html' %}
 {% block content %}
 {% if error %}
 <br>
 {{ error }}
 <br>
 {%endif%}
+{%  if user.is_authenticated %}
+   <form action="{% url 'home' %}" id="redirect_to_home">
+            </form>
+            <script type="application/javascript">
+                 document.getElementById('redirect_to_home').submit()
+            </script>
+{% endif %}
 <div class="container text-center">
     <form method="POST" action="{% url 'login' %}">
     {% csrf_token %}

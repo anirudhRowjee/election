@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'admin-base.html' %}
 {% block content %}
 {% if error %}
 <br>
@@ -9,9 +9,18 @@
         <h1> {{  message }}</h1>
     <h1 class="text-center">
         FIS-EES ADMIN INTERFACE
+                <br>
+        POPULATE VOTER DATABASE
     </h1>
-    {%  if voters.count == 0 %}
-        <form method="POST" action="{% url 'voter_ops' %}" enctype="multipart/form-data">
+        {%  if voters.count > 0 %}
+            <form action="{%  url 'view' %}" id="redirect_to_view">
+            </form>
+            <script type="application/javascript">
+                 alert("Database is already populated");
+                 document.getElementById('redirect_to_view').submit()
+            </script>
+        {% elif voters.count == 0 %}
+        <form method="POST" action="{% url 'populate' %}" enctype="multipart/form-data">
             {% csrf_token %}
             <br>
             <p>Please submit a CSV file with the following fields (in order) for every voter- </p>
@@ -30,25 +39,7 @@
         <br>
             <input class='btn btn-primary' type="submit" value="Populate Database">
         </form>
-    {%  else %}
-        <table class="text-center">
-            <tr>
-                <th> VOTER ID </th>
-                <th> VOTER NAME </th>
-                <th> CLASS </th>
-                <th> HAS VOTED</th>
-            </tr>
-            {%  for voter in voters.all %}
-                <tr>
-                    <td> {{ voter.voter_id }}</td>
-                    <td> {{ voter.name }}</td>
-                    <td> {{ voter.voter_class }}</td>
-                    <td> {{ voter.has_voted }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-
-    {%  endif  %}
+        {%  endif %}
     </div>
 
 {% endblock %}

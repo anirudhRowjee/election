@@ -1,0 +1,20 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VOTER ADMINISTRATION
+    </h1>
+    <a href="{% url 'view' %}" class="btn btn-primary"> VIEW ALL VOTERS </a>
+    <a href="{% url 'populate' %}" class="btn btn-primary"> POPULATE VOTER DATABASE </a>
+    <a href="{% url 'delete' %}" class="btn btn-primary"> DELETE ALL VOTERS </a>
+    </div>
+
+{% endblock %}

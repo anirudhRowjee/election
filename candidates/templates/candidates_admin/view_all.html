@@ -1,0 +1,33 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        CANDIDATES INFORMATION
+    </h1>
+    {%  if candidates.count == 0 %}
+            <form action="{%  url 'populate' %}" id = 'redirect_to_populate'>
+            </form>
+            <script type="application/javascript">
+                alert("Database is not populated");
+                document.getElementById('redirect_to_populate').submit()
+            </script>
+    {%  else %}
+        {% for candidate in candidates.all %}
+            <div class="inline-group" style="background-color: #79aec8; border:2px solid black;">
+                <img src="{{ candidate.image.url }}" height="100px" width="100px">
+                <h3> {{ candidate.name }}</h3>
+                <p> {{ candidate.slogan }}</p>
+            </div>
+        {% endfor %}
+    {%  endif  %}
+    </div>
+
+{% endblock %}

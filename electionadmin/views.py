@@ -30,6 +30,7 @@ def logout(request):
         return redirect('home')
 
 
+@login_required()
 def home(request):
     return render(request, 'electionadmin/home.html')
 
@@ -37,27 +38,47 @@ def home(request):
 @login_required(login_url='electionadmin/login.html')
 def populate_voters(request):
     if request.method == 'POST':
-        time_of_creation = datetime.now()
-        new = VoterLists(
-            filename=str(request.FILES['csv_source'])+str(time_of_creation),
-            file=request.FILES['csv_source'],
-        )
-        new.save()
-        file_id = VoterLists.objects.get(filename=str(request.FILES['csv_source'])+str(time_of_creation)).id
-        f = VoterLists.objects.get(id=file_id).file.path
-        with open(f) as foo:
-            reader = csv.reader(foo, delimiter=',')
-            for row in reader:
-                Voters.objects.get_or_create(
-                    voter_id=str(row[0]).lstrip().rstrip(),
-                    name=str(row[1]).lstrip().rstrip(),
-                    voter_class=str(row[2]).lstrip().rstrip(),
-                    type=VoterTypes.objects.get(id=request.POST['type']),
-                )
-        voters = Voters.objects
-        return render(request, 'electionadmin/voter_ops.html', {'votertypes': votertypes, 'voters': voters})
+        if request.POST['voters'].count == 0:
+            time_of_creation = datetime.now()
+            new = VoterLists(
+                filename=str(request.FILES['csv_source'])+str(time_of_creation),
+                file=request.FILES['csv_source'],
+            )
+            new.save()
+            file_id = VoterLists.objects.get(filename=str(request.FILES['csv_source'])+str(time_of_creation)).id
+            f = VoterLists.objects.get(id=file_id).file.path
+            with open(f) as foo:
+                reader = csv.reader(foo, delimiter=',')
+                for row in reader:
+                    Voters.objects.get_or_create(
+                        voter_id=str(row[0]).lstrip().rstrip(),
+                        name=str(row[1]).lstrip().rstrip(),
+                        voter_class=str(row[2]).lstrip().rstrip(),
+                        type=VoterTypes.objects.get(id=request.POST['type']),
+                    )
+            votertypes = VoterTypes.objects
+            voters = Voters.objects
+            return render(request, 'electionadmin/voters_viewvoters.html', {'votertypes': votertypes, 'voters': voters})
+        else:
+            votertypes = VoterTypes.objects
+            voters = Voters.objects
+            return render(request, 'electionadmin/voters_viewvoters.html', {'votertypes': votertypes, 'voters': voters})
     else:
         votertypes = VoterTypes.objects
         voters = Voters.objects
-        return render(request, 'electionadmin/voter_ops.html', {'votertypes':votertypes, 'voters':voters})
+        return redirect(request, 'electionadmin/voter_populate.html', {'votertypes':votertypes, 'voters':voters})
 
+
+@login_required(login_url='electionadmin/login.html')
+def view_voters(request):
+    votertypes = VoterTypes.objects
+    voters = Voters.objects
+    if request.method == 'GET' and request.POST['voters'].count != 0:
+        return render(request, 'electionadmin/voters_viewvoters.html', {'votertypes': votertypes, 'voters': voters})
+    else:
+        return redirect(request, 'electionadmin/voter_populate.html', {'votertypes': votertypes, 'voters': voters})
+
+
+@login_required(login_url='electionadmin/login.html')
+def delete_voters(request):
+    pass

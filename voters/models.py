@@ -10,7 +10,6 @@ class Voters(models.Model):
     type = models.ForeignKey(election_models.VoterTypes, on_delete=models.DO_NOTHING)
     has_voted = models.CharField(max_length=1, default='N')
 
-
     class Meta:
         managed = True
         verbose_name_plural = 'voters'

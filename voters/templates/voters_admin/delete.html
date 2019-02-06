@@ -1,0 +1,39 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VOTER DELETION
+    </h1>
+        {%  if voters.count == 0 %}
+            <form action="{%  url 'populate' %}" id="redirect_to_populate"></form>
+            <script type="application/javascript">
+                 alert("Database is not populated");
+                 document.getElementById('redirect_to_populate').submit()
+            </script>
+        {%  endif %}
+        <form method="POST" action="{% url 'delete' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <br>
+            <p style="border:2px solid red;"> Are you SURE you want to delete all voter data? THIS ACTION CAN NOT BE UNDONE </p>
+            <p> To Proceed, Please Enter the SuperUser username.</p>
+            <input type="text" name="superuser_username">
+            <p> Please Enter the SuperUser password.</p>
+            <input type="password" name="superuser_password_1">
+            <p> Please Enter the SuperUser password again.</p>
+            <input type="password" name="superuser_password_2">
+            <br>
+        <br>
+            <input class='btn btn-primary' type="submit" value="DELETE VOTERS">
+        </form>
+
+    </div>
+
+{% endblock %}

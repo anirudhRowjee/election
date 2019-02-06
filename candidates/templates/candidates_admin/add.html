@@ -1,0 +1,48 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+    <form method="POST" action="{% url 'add' %}">
+    {% csrf_token %}
+    <br>
+     Candidate's voter ID :
+    <select name="voter_id" id="voter_id">
+        {%  for voter in voters %}
+            <option value="{{ voter.voter_id }}"> {{ voter.voter_id }} </option>
+        {% endfor %}
+    </select>
+    <br>
+    For the Post Of:
+    <select name="post" id="post">
+        {%  for post in posts %}
+            <option value="{{ post.id }}"> {{ post.name }} </option>
+        {% endfor %}
+    </select>
+    <br>
+    In election :
+    <select name="election" id="election">
+        {%  for election in elections %}
+            <option value="{{ election.id }}"> {{election.type}}  {{election.year}} </option>
+        {% endfor %}
+    </select>
+    <br>
+    Image :
+    <input type="file" id="image" name="image">
+    <br>
+    Logo :
+    <input type="file" id="logo" name="logo">
+    <br>
+    Slogan :
+    <input type="text" id="slogan">
+    <br>
+    <br>
+    <input class='btn btn-primary' type="submit" value="Submit Candidates">
+</form>
+</div>
+
+
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'admin-base.html' %}
 {% block content %}
 {% if error %}
 <br>
@@ -9,12 +9,18 @@
         <h1> {{  message }}</h1>
     <h1 class="text-center">
         FIS-EES ADMIN INTERFACE
+        <br>
+        MAIN MENU
     </h1>
+    <br>
+    <br>
     {%  if user.is_authenticated %}
-        <h2> welcome, {{ user }}</h2>
-    {%  else %}
-        <a href="{%  url 'login' %}" class="btn btn-primary"> Login Now </a>
-    {%  endif %}
+        <h2> Welcome, {{ user }}</h2>
+        <a href="#" class="btn btn-primary"> Voters </a>
+        <a href="#" class="btn btn-primary"> Elections </a>
+        <a href="#" class="btn btn-primary"> Candidates </a>
+
+    {% endif %}
     </div>
 
 {% endblock %}
