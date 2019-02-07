@@ -8,7 +8,9 @@ class Voters(models.Model):
     name = models.CharField(max_length=50, blank=True, null=True)
     voter_class = models.CharField(max_length=9, blank=True, null=True)
     type = models.ForeignKey(election_models.VoterTypes, on_delete=models.DO_NOTHING)
+
     has_voted = models.CharField(max_length=1, default='N')
+    is_candidate = models.CharField(max_length=1, default='N')
 
     class Meta:
         managed = True

@@ -1,0 +1,20 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        ELECTION ADMINISTRATION
+    </h1>
+    <a href="election/mainmenu" class="btn btn-primary"> ELECTIONS </a>
+    <a href="/posts/mainmenu" class="btn btn-primary"> POSTS </a>
+    <a href="/votertypes/mainmenu" class="btn btn-primary"> VOTER TYPES </a>
+    </div>
+
+{% endblock %}

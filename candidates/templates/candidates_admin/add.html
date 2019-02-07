@@ -21,7 +21,7 @@
      Candidate's voter ID :
     <select name="voter_id" id="voter_id">
         {%  for voter in voters %}
-            <option value="{{ voter.voter_id }}"> {{ voter.voter_id }} </option>
+            <option value="{{ voter.voter_id }}"> {{ voter.name }} {{ voter.voter_class }} ({{ voter.voter_id }}) </option>
         {% endfor %}
     </select>
     <br>
@@ -46,7 +46,7 @@
     <input type="file" id="logo" name="logo">
     <br>
     Slogan :
-    <input type="text" id="slogan">
+    <input type="text" name="slogan">
     <br>
     <br>
     <input class='btn btn-primary' type="submit" value="Submit Candidates">

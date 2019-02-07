@@ -23,11 +23,13 @@
             {% csrf_token %}
             <br>
             <p> SELECT CANDIDATE </p>
-            <select id="candidate_tbd">
+            <select name="candidate_tbd">
                 {% for candidate in candidates.all %}
-                    <option value="{{ candidate.id }}"> {{ candidate.name }}</option>
+                    <option value="{{ candidate.id }}"> {{ candidate.pretty_name}}</option>
                 {% endfor %}
             </select>
+            <br>
+            <br>
             <p style="border:2px solid red;"> Are you SURE you want to delete this candidate? THIS ACTION CAN NOT BE UNDONE </p>
             <p> To Proceed, Please Enter the SuperUser username.</p>
             <input type="text" name="superuser_username">

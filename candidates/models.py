@@ -9,7 +9,7 @@ from django import forms
 class Candidate(models.Model):
     voter_id = models.ForeignKey(v_models.Voters, on_delete=models.DO_NOTHING)
     name = models.CharField(max_length=50)
-    candidate_class = models.CharField(max_length=3)
+    candidate_class = models.CharField(max_length=20)
     post = models.ForeignKey(e_models.Posts, on_delete=models.DO_NOTHING)
     election = models.ForeignKey(e_models.Election, on_delete=models.DO_NOTHING)
     image = models.ImageField(upload_to='media/candidates/images')
@@ -20,6 +20,9 @@ class Candidate(models.Model):
 
     def __str__(self):
         return self.name + ' for ' + str(self.post)
+
+    def pretty_name(self):
+        return self.name + ' for ' + str(self.post) + ' in ' + str(self.election)
 
 
 
