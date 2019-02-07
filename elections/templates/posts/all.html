@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VIEW ALL POSTS
+    </h1>
+    {%  if posts.count == 0 %}
+        <h1> PLEASE <a href="add"> ADD POSTS </a></h1>
 
-</body>
-</html>
+    {%  else %}
+        <div style="overflow:auto; position:relative;" class="text-center">
+            <table>
+            <tr>
+                <th> POST NAME </th>
+                <th> DESCRIPTION </th>
+            </tr>
+            <tbody>
+                {%  for post in posts.all %}
+                <tr>
+                    <td> {{ post.name }}</td>
+                    <td> {{ post.description }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {%  endif  %}
+    </div>
+
+{% endblock %}

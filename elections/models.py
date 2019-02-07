@@ -4,9 +4,9 @@ import datetime
 
 
 class Election(models.Model):
+
     current_year = datetime.date.today().year
     now = datetime.datetime.now
-
     year = models.IntegerField(default=current_year)
     election_number = models.IntegerField(default=1)
     is_active = models.BooleanField(default=False)

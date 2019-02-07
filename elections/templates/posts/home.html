@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        POSTS ADMINISTRATION
+    </h1>
+    <a href="/admin/elections/posts/create" class="btn btn-primary"> ADD POST </a>
+    <a href="/admin/elections/posts/remove" class="btn btn-primary"> DELETE POST </a>
+    <a href="/admin/elections/posts/all" class="btn btn-primary"> VIEW ALL POSTS </a>
+    </div>
 
-</body>
-</html>
+{% endblock %}

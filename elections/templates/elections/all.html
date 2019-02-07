@@ -1,1 +1,45 @@
-{% load staticfiles %}
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VIEW ALL ELECTIONS
+    </h1>
+    {%  if elections.count == 0 %}
+        <h1> PLEASE <a href="add"> ADD ELECTION </a></h1>
+
+    {%  else %}
+        <div style="overflow:auto; position:relative;" class="text-center">
+            <table>
+            <tr>
+                <th> ELECTION TYPE </th>
+                <th> ELECTION YEAR </th>
+                <th> ELECTION NUMBER </th>
+                <th> ELECTION STATUS </th>
+                <th> CREATED </th>
+            </tr>
+            <tbody>
+                {%  for election in elections.all %}
+                <tr class="text-center">
+                    <td> {{ election.type }}</td>
+                    <td> {{ election.year }}</td>
+                    <td> {{ election.election_number }}</td>
+                    <td> {{ election.is_active }}</td>
+                    <td> {{ election.created_timestamp }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {%  endif  %}
+    </div>
+
+{% endblock %}

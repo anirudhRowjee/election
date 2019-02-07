@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VOTERTYPE ADMINISTRATION
+    </h1>
+    <a href="/admin/elections/votertypes/create" class="btn btn-primary"> ADD VOTER TYPE </a>
+    <a href="/admin/elections/votertypes/remove" class="btn btn-primary"> DELETE VOTER TYPE </a>
+    <a href="/admin/elections/votertypes/all" class="btn btn-primary"> VIEW ALL VOTER TYPES </a>
+    </div>
 
-</body>
-</html>
+{% endblock %}

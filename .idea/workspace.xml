@@ -3,17 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="f9cc0526-9bc0-4ea6-bc77-3190561b2ad2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/candidates/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/candidates/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/candidates/templates/candidates_admin/add.html" beforeDir="false" afterPath="$PROJECT_DIR$/candidates/templates/candidates_admin/add.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/candidates/templates/candidates_admin/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/candidates/templates/candidates_admin/delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/candidates/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/candidates/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electionadmin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/electionadmin/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elections/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elections/templates/elections/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/elections/templates/elections/all.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elections/templates/elections/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/elections/templates/elections/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elections/templates/mainmenu/mainmenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/elections/templates/mainmenu/mainmenu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elections/templates/posts/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/elections/templates/posts/all.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elections/templates/posts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/elections/templates/posts/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elections/templates/votertypes/all.html" beforeDir="false" afterPath="$PROJECT_DIR$/elections/templates/votertypes/all.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/elections/templates/votertypes/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/elections/templates/votertypes/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/elections/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/elections/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/voters/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voters/migrations/0002_auto_20190205_2036.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/voters/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/voters/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,31 +40,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/elections/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/elections/templates/elections/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/elections/templates/elections/all.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="270">
+              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -73,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/elections/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-467">
-              <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+            <state relative-caret-position="1098">
+              <caret line="59" column="35" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -82,11 +60,65 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/elections/templates/posts/create.html">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/elections/templates/votertypes/all.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="345">
+              <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/voters/templates/voters_admin/view.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="6" column="9" selection-end-line="45" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/elections/templates/mainmenu/mainmenu.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/elections/templates/posts/all.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret selection-end-line="38" selection-end-column="14" />
+              <folding>
+                <element signature="e#410#451#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/elections/templates/elections/all.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="37" column="28" lean-forward="true" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+              <folding>
+                <element signature="e#395#436#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/elections/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="109">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/elections/templates/posts/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="299">
+              <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -103,20 +135,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/elections/templates/votertypes/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/voters/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1518">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="368">
+              <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -142,9 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/authmaster/views.py" />
-        <option value="$PROJECT_DIR$/election/settings.py" />
-        <option value="$PROJECT_DIR$/electionadmin/templates/electionadmin/elections.html" />
         <option value="$PROJECT_DIR$/electionadmin/templates/electionadmin/cadidates.html" />
         <option value="$PROJECT_DIR$/electionadmin/templates/electionadmin/clusters.html" />
         <option value="$PROJECT_DIR$/electionadmin/templates/electionadmin/voters.html" />
@@ -165,7 +182,6 @@
         <option value="$PROJECT_DIR$/candidates/urls.py" />
         <option value="$PROJECT_DIR$/election/urls.py" />
         <option value="$PROJECT_DIR$/voters/forms.py" />
-        <option value="$PROJECT_DIR$/elections/models.py" />
         <option value="$PROJECT_DIR$/voters/templates/voters_admin/populate.html" />
         <option value="$PROJECT_DIR$/election/templates/admin-base.html" />
         <option value="$PROJECT_DIR$/voters/views.py" />
@@ -179,20 +195,24 @@
         <option value="$PROJECT_DIR$/candidates/templates/candidates_admin/add.html" />
         <option value="$PROJECT_DIR$/voters/models.py" />
         <option value="$PROJECT_DIR$/candidates/views.py" />
-        <option value="$PROJECT_DIR$/elections/urls.py" />
-        <option value="$PROJECT_DIR$/elections/templates/elections/all.html" />
-        <option value="$PROJECT_DIR$/elections/views.py" />
-        <option value="$PROJECT_DIR$/elections/templates/elections/home.html" />
-        <option value="$PROJECT_DIR$/elections/templates/mainmenu/mainmenu.html" />
         <option value="$PROJECT_DIR$/elections/templates/elections/create.html" />
         <option value="$PROJECT_DIR$/elections/templates/elections/activate.html" />
         <option value="$PROJECT_DIR$/elections/templates/elections/declare.html" />
         <option value="$PROJECT_DIR$/elections/templates/elections/reset.html" />
-        <option value="$PROJECT_DIR$/elections/templates/votertypes/all.html" />
         <option value="$PROJECT_DIR$/elections/templates/votertypes/add.html" />
-        <option value="$PROJECT_DIR$/elections/templates/votertypes/home.html" />
-        <option value="$PROJECT_DIR$/elections/templates/posts/home.html" />
         <option value="$PROJECT_DIR$/elections/templates/posts/create.html" />
+        <option value="$PROJECT_DIR$/elections/templates/posts/delete.html" />
+        <option value="$PROJECT_DIR$/elections/templates/votertypes/delete.html" />
+        <option value="$PROJECT_DIR$/elections/urls.py" />
+        <option value="$PROJECT_DIR$/elections/templates/mainmenu/mainmenu.html" />
+        <option value="$PROJECT_DIR$/elections/templates/posts/home.html" />
+        <option value="$PROJECT_DIR$/elections/templates/votertypes/home.html" />
+        <option value="$PROJECT_DIR$/elections/templates/elections/home.html" />
+        <option value="$PROJECT_DIR$/elections/views.py" />
+        <option value="$PROJECT_DIR$/elections/templates/votertypes/all.html" />
+        <option value="$PROJECT_DIR$/elections/templates/posts/all.html" />
+        <option value="$PROJECT_DIR$/elections/models.py" />
+        <option value="$PROJECT_DIR$/elections/templates/elections/all.html" />
       </list>
     </option>
   </component>
@@ -216,24 +236,6 @@
             <path>
               <item name="election" type="b2602c69:ProjectViewProjectNode" />
               <item name="election" type="462c0819:PsiDirectoryNode" />
-              <item name="electionadmin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="election" type="462c0819:PsiDirectoryNode" />
-              <item name="electionadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="election" type="462c0819:PsiDirectoryNode" />
-              <item name="electionadmin" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="electionadmin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="election" type="462c0819:PsiDirectoryNode" />
               <item name="elections" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -248,6 +250,13 @@
               <item name="elections" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="elections" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="election" type="b2602c69:ProjectViewProjectNode" />
+              <item name="election" type="462c0819:PsiDirectoryNode" />
+              <item name="elections" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="mainmenu" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="election" type="b2602c69:ProjectViewProjectNode" />
@@ -255,6 +264,24 @@
               <item name="elections" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="posts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="election" type="b2602c69:ProjectViewProjectNode" />
+              <item name="election" type="462c0819:PsiDirectoryNode" />
+              <item name="elections" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="votertypes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="election" type="b2602c69:ProjectViewProjectNode" />
+              <item name="election" type="462c0819:PsiDirectoryNode" />
+              <item name="voters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="election" type="b2602c69:ProjectViewProjectNode" />
+              <item name="election" type="462c0819:PsiDirectoryNode" />
+              <item name="voters" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -336,12 +363,13 @@
       <workItem from="1549466544508" duration="14449000" />
       <workItem from="1549508057646" duration="16738000" />
       <workItem from="1549528229888" duration="5162000" />
-      <workItem from="1549540020285" duration="8885000" />
+      <workItem from="1549540020285" duration="9068000" />
+      <workItem from="1549557369523" duration="4396000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="92063000" />
+    <option name="totallyTimeSpent" value="96642000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -353,13 +381,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1600" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1366" height="768" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17030849" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1732224" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49924356" visible="true" weight="0.25516403" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49924356" weight="0.25470334" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3299566" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3299566" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3299566" />
@@ -379,10 +408,10 @@
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.17030849" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1732224" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49924356" visible="true" weight="0.35115433" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49924356" visible="true" weight="0.25470334" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3299566" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3299566" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3299566" />
@@ -405,15 +434,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/electionadmin/templates/electionadmin/voters_viewvoters.html" />
-    <entry file="file://$PROJECT_DIR$/electionadmin/templates/electionadmin/voter_populate.html" />
-    <entry file="file://$PROJECT_DIR$/election/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="37" column="98" selection-end-line="64" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/voters/apps.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -438,13 +458,6 @@
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/voters/templates/voters_admin/view.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -535,16 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elections/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1127">
-          <caret line="50" column="33" selection-start-line="50" selection-start-column="33" selection-end-line="50" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/voters/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -628,44 +631,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/voters/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="299">
           <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elections/templates/elections/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elections/templates/elections/all.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elections/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -683,21 +652,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elections/templates/mainmenu/mainmenu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/elections/templates/elections/activate.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/elections/templates/votertypes/all.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
@@ -728,34 +683,126 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elections/templates/votertypes/home.html">
+    <entry file="file://$PROJECT_DIR$/elections/templates/posts/create.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elections/templates/posts/delete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voters/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1357">
+          <caret line="66" selection-start-line="66" selection-end-line="66" />
+          <folding>
+            <element signature="e#0#49#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elections/templates/votertypes/delete.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elections/templates/mainmenu/mainmenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/elections/templates/posts/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        <state relative-caret-position="299">
+          <caret line="13" column="9" lean-forward="true" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elections/templates/votertypes/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" column="44" selection-start-line="16" selection-start-column="44" selection-end-line="16" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elections/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voters/templates/voters_admin/view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="6" column="9" selection-end-line="45" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elections/templates/posts/all.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="38" selection-end-column="14" />
+          <folding>
+            <element signature="e#410#451#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/elections/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-467">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
+        <state relative-caret-position="1098">
+          <caret line="59" column="35" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elections/templates/posts/create.html">
+    <entry file="file://$PROJECT_DIR$/elections/templates/votertypes/all.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        <state relative-caret-position="345">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elections/templates/elections/home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elections/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/elections/templates/elections/all.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="37" column="28" lean-forward="true" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+          <folding>
+            <element signature="e#395#436#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

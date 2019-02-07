@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VIEW ALL VOTERTYPES
+    </h1>
+    {%  if votertypes.count == 0 %}
+        <h1> PLEASE <a href="add"> ADD VOTERTYPES </a></h1>
 
-</body>
-</html>
+    {%  else %}
+        <div style="overflow:auto; position:relative;" class="text-center">
+            <table>
+            <tr>
+                <th> VOTER TYPE </th>
+                <th> VOTE VALUE </th>
+            </tr>
+            <tbody>
+                {%  for votertype in votertypes.all %}
+                <tr>
+                    <td> {{ votertype.name }}</td>
+                    <td> {{ votertype.value }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {%  endif  %}
+    </div>
+
+{% endblock %}

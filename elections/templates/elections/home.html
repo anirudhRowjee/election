@@ -12,9 +12,11 @@
         <br>
         ELECTION ADMINISTRATION
     </h1>
-    <a href="{% url 'home_election' %}" class="btn btn-primary"> ELECTIONS </a>
-    <a href="/posts/mainmenu" class="btn btn-primary"> POSTS </a>
-    <a href="/votertypes/mainmenu" class="btn btn-primary"> VOTER TYPES </a>
+    <a href="/admin/elections/election_ops/create" class="btn btn-primary"> ADD ELECTION </a>
+    <a href="/admin/elections/election_ops/activate" class="btn btn-primary"> ACTIVATE ELECTION </a>
+    <a href="/admin/elections/election_ops/reset" class="btn btn-primary"> RESET ELECTION </a>
+    <a href="/admin/elections/election_ops/declare" class="btn btn-primary"> DECLARE RESULTS OF ELECTION </a>
+    <a href="/admin/elections/election_ops/all" class="btn btn-primary"> VIEW ALL ELECTIONS </a>
     </div>
 
 {% endblock %}
