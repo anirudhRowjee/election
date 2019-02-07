@@ -3,6 +3,7 @@ from candidates import models as c_models
 from django.contrib.auth.decorators import login_required
 from voters import models as v_models
 from elections import models as e_models
+from django.contrib import auth
 # Create your views here.
 
 candidates = c_models.Candidate.objects
@@ -33,11 +34,21 @@ def add(request):
             candidate_class= voter_class,
         )
         return render(request, 'candidates_admin/view_all.html', {'candidates':candidates})
-
     else:
         voters = v_models.Voters.objects.all()
         posts = e_models.Posts.objects.all()
-        elections = e_models.Election.objects.all()
+        elections = e_models.Election.objects.filter(is_active=False)
         return render(request, 'candidates_admin/add.html', {'voters':voters, 'posts':posts, 'elections':elections})
 
 
+@login_required()
+def mainmenu(request):
+    return render(request, 'candidates_admin/mainmenu.html')
+
+
+@login_required()
+def delete(request):
+    if request.method == 'POST':
+        pass
+    else:
+        return render(request, 'candidates_admin/delete.html', {'candidates':candidates})

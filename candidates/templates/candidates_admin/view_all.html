@@ -13,11 +13,11 @@
         CANDIDATES INFORMATION
     </h1>
     {%  if candidates.count == 0 %}
-            <form action="{%  url 'populate' %}" id = 'redirect_to_populate'>
+            <form action="{%  url 'add' %}" id = 'redirect_to_add'>
             </form>
             <script type="application/javascript">
-                alert("Database is not populated");
-                document.getElementById('redirect_to_populate').submit()
+                alert("Candidates are not added");
+                document.getElementById('redirect_to_add').submit()
             </script>
     {%  else %}
         {% for candidate in candidates.all %}

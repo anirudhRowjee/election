@@ -18,3 +18,4 @@ class Voters(models.Model):
         return self.name
 
 # TODO setup interface for client-side csv database normalization
+

@@ -1,6 +1,8 @@
 from django.db import models
 from elections import models as e_models
 from voters import models as v_models
+from django import forms
+
 # Create your models here.
 
 
@@ -18,4 +20,6 @@ class Candidate(models.Model):
 
     def __str__(self):
         return self.name + ' for ' + str(self.post)
+
+
 

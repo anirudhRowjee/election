@@ -5,8 +5,17 @@
 {{ error }}
 <br>
 {%endif%}
+{% if elections.count == 0 %}
+    <p> zero elections</p>
+     <form action="{%  url 'mainmenu' %}" id = 'redirect_to_add_elections'>
+            </form>
+            <script type="application/javascript">
+                alert("You must have an active election to add candidates.");
+                document.getElementById('redirect_to_add_elections').submit()
+            </script>
+{%  else %}
     <div class="container text-center">
-    <form method="POST" action="{% url 'add' %}">
+    <form method="POST" action="{% url 'add' %}" enctype="multipart/form-data">
     {% csrf_token %}
     <br>
      Candidate's voter ID :
@@ -43,6 +52,6 @@
     <input class='btn btn-primary' type="submit" value="Submit Candidates">
 </form>
 </div>
-
+{% endif %}
 
 {% endblock %}

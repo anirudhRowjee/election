@@ -30,7 +30,7 @@
                 THIS FIELD CAN NOT BE LEFT NULL.
             </p>
             {%  for VoterTypes in votertypes.all %}
-                <input type="radio" name="type" value="{{ VoterTypes.value  }}" required="required"> {{ VoterTypes.name }} <br>
+                <input type="radio" name="type" value="{{ VoterTypes.id  }}" required="required"> {{ VoterTypes.name }} <br>
             {%  endfor %}
             <br>
             <p> Please attach the necessary CSV file - ></p>

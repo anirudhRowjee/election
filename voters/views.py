@@ -8,16 +8,17 @@ import csv
 from datetime import datetime
 # Create your views here.
 
+
 @login_required(login_url='electionadmin/login.html')
 def populate_voters(request):
     if request.method == 'POST':
         time_of_creation = datetime.now()
         new = VoterLists(
-            filename=str(request.FILES['csv_source'])+str(time_of_creation),
+            filename=str(request.FILES['csv_source']) + str(time_of_creation),
             file=request.FILES['csv_source'],
         )
         new.save()
-        file_id = VoterLists.objects.get(filename=str(request.FILES['csv_source'])+str(time_of_creation)).id
+        file_id = VoterLists.objects.get(filename=str(request.FILES['csv_source']) + str(time_of_creation)).id
         f = VoterLists.objects.get(id=file_id).file.path
         with open(f) as foo:
             reader = csv.reader(foo, delimiter=',')

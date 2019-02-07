@@ -48,4 +48,5 @@ class VoterTypes(models.Model):
 class VoterLists(models.Model):
     filename = models.CharField(max_length=100)
     file = models.FileField(upload_to='media/voterlists/')
+    voterType = models.ForeignKey
     migrated = models.DateTimeField(auto_now=True)

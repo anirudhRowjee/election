@@ -3,6 +3,7 @@ from django.shortcuts import render, HttpResponse
 from django.contrib import auth
 from django.shortcuts import redirect
 from voters.models import Voters
+import voters.views
 from elections.models import VoterTypes, VoterLists
 from django.contrib.auth.decorators import login_required
 import csv
@@ -10,6 +11,8 @@ from datetime import datetime
 
 
 # Create your views here.
+def redirect_to_voters(request):
+    return redirect('')
 
 
 def login(request):
