@@ -19,7 +19,18 @@ def home_elections(request):
 
 
 def create_elections(request):
-    pass
+    if request.method == 'POST':
+        f = AddElection(request.POST)
+        if f.is_valid():
+            f.save()
+            elections = e_models.Election.objects
+            return render(request, 'elections/all.html', {'elections':elections})
+        else:
+            form = AddElection()
+            return render(request, 'elections/create.html', {'form': form, 'error':'data did not validate'})
+    else:
+        form = AddElection()
+        return render(request, 'elections/create.html', {'form':form})
 
 
 def activate_elections(request):
