@@ -12,14 +12,6 @@
                 <br>
         POPULATE VOTER DATABASE
     </h1>
-        {%  if voters.count > 0 %}
-            <form action="{%  url 'view' %}" id="redirect_to_view">
-            </form>
-            <script type="application/javascript">
-                 alert("Database is already populated");
-                 document.getElementById('redirect_to_view').submit()
-            </script>
-        {% elif voters.count == 0 %}
         <form method="POST" action="{% url 'populate' %}" enctype="multipart/form-data">
             {% csrf_token %}
             <br>
@@ -39,7 +31,6 @@
         <br>
             <input class='btn btn-primary' type="submit" value="Populate Database">
         </form>
-        {%  endif %}
     </div>
 
 {% endblock %}

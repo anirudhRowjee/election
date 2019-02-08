@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from elections import models as e_models
+from .forms import *
+from django.contrib import auth
 
 # Create your views here.
 
@@ -41,7 +43,19 @@ def all_elections(request):
 
 
 def create_posts(request):
-    pass
+    if request.method == 'POST':
+        form = AddNewPost(request.POST)
+        post_name = request.POST['post_name']
+        post_description = request.POST['post_description']
+        e_models.Posts.objects.get_or_create(
+            name=post_name,
+            description=post_description,
+        )
+        posts = e_models.Posts.objects
+        return render(request, 'posts/all.html', {'posts': posts})
+    else:
+        form = AddNewPost()
+        return render(request, 'posts/create.html', {'form': form})
 
 
 def home_posts(request):
@@ -49,7 +63,24 @@ def home_posts(request):
 
 
 def remove_posts(request):
-    pass
+    if request.method == 'POST':
+        uname = request.POST['superuser_username']
+        p1 = request.POST['superuser_password_1']
+        p2 = request.POST['superuser_password_2']
+        if p1 == p2:
+            if auth.authenticate(request, username=uname, password=p1) is not None:
+                post_id = int(request.POST['post_tbd'])
+                post_tbd = e_models.Posts.objects.get(id=post_id)
+                post_tbd.delete()
+                posts = e_models.Posts.objects
+                return render(request, 'posts/all.html', {'posts': posts})
+            else:
+                posts = e_models.Posts.objects
+                return render(request, 'posts/delete.html',
+                              {'error': 'WRONG USERNAME/PASSWORD', 'posts': posts})
+    else:
+        posts = e_models.Posts.objects
+        return render(request, 'posts/delete.html', {'posts':posts})
 
 
 def all_posts(request):
@@ -61,9 +92,18 @@ def all_posts(request):
 
 def create_votertype(request):
     if request.method=='POST':
-        pass
+        form = AddNewVotertype(request.POST)
+        votertypename = request.POST['votertype_name']
+        votertypevalue = request.POST['votertype_votevalue']
+        e_models.VoterTypes.objects.get_or_create(
+            name=votertypename,
+            value=votertypevalue,
+        )
+        votertypes= e_models.VoterTypes.objects
+        return render(request, 'votertypes/all.html', {'votertypes':votertypes})
     else:
-        return render(request, 'votertypes/add.html')
+        form = AddNewVotertype()
+        return render(request, 'votertypes/create.html', {'form':form})
 
 
 def home_votertype(request):
@@ -72,9 +112,26 @@ def home_votertype(request):
 
 def remove_votertype(request):
     if request.method == 'POST':
-        pass
+        uname = request.POST['superuser_username']
+        p1 = request.POST['superuser_password_1']
+        p2 = request.POST['superuser_password_2']
+        if p1 == p2:
+            if auth.authenticate(request, username=uname, password=p1) is not None:
+                votertype_id = int(request.POST['votertype_tbd'])
+                votertype_tbd = e_models.VoterTypes.objects.get(id=votertype_id)
+                votertype_tbd.delete()
+                votertypes = e_models.VoterTypes.objects
+                return render(request, 'votertypes/all.html', {'votertypes': votertypes})
+            else:
+                votertypes = e_models.VoterTypes.objects
+                return render(request, 'votertypes/delete.html', {'error': 'WRONG USERNAME/PASSWORD', 'votertypes': votertypes})
+        else:
+            votertypes = e_models.VoterTypes.objects
+            return render(request, 'votertypes/delete.html',
+                          {'error': 'PASSWORDS DO NOT MATCH', 'votertypes': votertypes})
     else:
-        return render(request, 'votertypes/delete.html')
+        votertypes = e_models.VoterTypes.objects
+        return render(request, 'votertypes/delete.html', {'votertypes':votertypes})
 
 
 def all_votertype(request):

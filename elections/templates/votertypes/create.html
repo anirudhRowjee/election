@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+    <form method="POST" action="/admin/elections/votertypes/create/" enctype="multipart/form-data">
+        {% csrf_token %}
+            {{ form }}
+        <input class='btn btn-primary' type="submit" value="Add Voter Type">
+    </form>
+</div>
 
-</body>
-</html>
+
+{% endblock %}
