@@ -3,6 +3,8 @@
 {% if error %}
 <br>
 {{ error }}
+    {{ form.errors }}
+    {{ form.non_field_errors }}
 <br>
 {%endif%}
     <div class="container text-center">
