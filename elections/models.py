@@ -14,7 +14,7 @@ class Election(models.Model):
     created_timestamp = models.DateTimeField(auto_now=True)
 
     class Meta:
-        unique_together = (('year', 'election_number'),)
+        unique_together = (('year', 'election_number', 'type'),)
 
     def __str__(self):
         name = self.type + ' ' + str(self.year)

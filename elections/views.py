@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from elections import models as e_models
 from .forms import *
 from django.contrib import auth
-
+from django.db import IntegrityError
 # Create your views here.
 
 
@@ -22,7 +22,11 @@ def create_elections(request):
     if request.method == 'POST':
         f = AddElection(request.POST)
         if f.is_valid():
-            f.save()
+            try:
+                f.save()
+            except IntegrityError as e:
+                form = AddElection()
+                return render(request, 'elections/create.html', {'form':form, 'error': 'Duplicate Data'})
             elections = e_models.Election.objects
             return render(request, 'elections/all.html', {'elections':elections})
         else:
