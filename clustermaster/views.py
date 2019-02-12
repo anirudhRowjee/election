@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from clustermaster import models
 # Create your views here.
-
+from uuid import uuid4 as pwd
 
 def mainmenu(request):
     return render(request, 'clustermaster/mainmenu.html')
@@ -38,4 +38,7 @@ def show_history_booth(request):
     pass
 
 def send_voter_to_booth(request):
+    pass
+
+def booth_mainmenu(request):
     pass

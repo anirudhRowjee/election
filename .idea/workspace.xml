@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9cc0526-9bc0-4ea6-bc77-3190561b2ad2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/clustermaster/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/candidates/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/candidates/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/candidates/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/candidates/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clustermaster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustermaster/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clustermaster/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustermaster/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clustermaster/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustermaster/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electionadmin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/electionadmin/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elections/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elections/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elections/templates/elections/activate.html" beforeDir="false" afterPath="$PROJECT_DIR$/elections/templates/elections/activate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elections/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/voters/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/voters/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +37,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clustermaster/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="-92">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -54,62 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/booth/activation.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/booth/history.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/create.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/remove.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/clustermaster/urls.py">
+        <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clustermaster/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="216">
+              <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -127,19 +68,64 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html">
+        <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/booth/history.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="21" column="77" selection-start-line="21" selection-start-column="77" selection-end-line="21" selection-end-column="77" />
+            <state relative-caret-position="161">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html">
+        <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/create.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/remove.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="92">
               <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clustermaster/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clustermaster/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#24#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/clustermaster/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -149,9 +135,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -166,7 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/election/urls.py" />
         <option value="$PROJECT_DIR$/voters/forms.py" />
         <option value="$PROJECT_DIR$/voters/views.py" />
         <option value="$PROJECT_DIR$/candidates/forms.py" />
@@ -207,21 +192,23 @@
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/booth/main.html" />
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/admin.html" />
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/main.html" />
-        <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html" />
         <option value="$PROJECT_DIR$/electionadmin/urls.py" />
         <option value="$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html" />
-        <option value="$PROJECT_DIR$/clustermaster/models.py" />
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/booth/create.html" />
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/booth/history.html" />
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/create.html" />
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/remove.html" />
-        <option value="$PROJECT_DIR$/clustermaster/views.py" />
         <option value="$PROJECT_DIR$/clustermaster/urls.py" />
+        <option value="$PROJECT_DIR$/clustermaster/models.py" />
+        <option value="$PROJECT_DIR$/clustermaster/views.py" />
+        <option value="$PROJECT_DIR$/clustermaster/forms.py" />
+        <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="163" />
+    <option name="x" value="20" />
+    <option name="y" value="159" />
     <option name="width" value="1346" />
     <option name="height" value="582" />
   </component>
@@ -242,41 +229,12 @@
             <path>
               <item name="election" type="b2602c69:ProjectViewProjectNode" />
               <item name="election" type="462c0819:PsiDirectoryNode" />
-              <item name="clustermaster" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="election" type="462c0819:PsiDirectoryNode" />
-              <item name="clustermaster" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="election" type="462c0819:PsiDirectoryNode" />
-              <item name="clustermaster" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="clustermaster" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="election" type="462c0819:PsiDirectoryNode" />
-              <item name="clustermaster" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="clustermaster" type="462c0819:PsiDirectoryNode" />
-              <item name="booth" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="election" type="462c0819:PsiDirectoryNode" />
-              <item name="clustermaster" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="clustermaster" type="462c0819:PsiDirectoryNode" />
-              <item name="cluster" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="election" type="462c0819:PsiDirectoryNode" />
               <item name="electionadmin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="election" type="b2602c69:ProjectViewProjectNode" />
+              <item name="election" type="462c0819:PsiDirectoryNode" />
+              <item name="voters" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -364,12 +322,12 @@
       <workItem from="1549617395680" duration="1205000" />
       <workItem from="1549814218822" duration="2452000" />
       <workItem from="1549875031470" duration="3860000" />
-      <workItem from="1549961352017" duration="9190000" />
+      <workItem from="1549961352017" duration="16393000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120185000" />
+    <option name="totallyTimeSpent" value="127388000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -408,10 +366,10 @@
     </layout>
     <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18456884" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18456884" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49924356" visible="true" weight="0.33285093" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49924356" visible="true" weight="0.33285093" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3299566" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3299566" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3299566" />
@@ -434,16 +392,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/voters/migrations/0003_auto_20190207_1234.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/voters/migrations/0002_auto_20190205_2036.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/voters/migrations/0001_initial.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -603,16 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/voters/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../elenv/lib/python3.6/site-packages/django/forms/fields.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="141">
@@ -688,16 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/voters/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/voters/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1518">
@@ -746,17 +674,81 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html">
+    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/booth/activation.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
           <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/electionadmin/models.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="21" column="77" selection-start-line="21" selection-start-column="77" selection-end-line="21" selection-end-column="77" />
+        <state relative-caret-position="230">
+          <caret line="10" column="28" lean-forward="true" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/voters/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="11" column="52" selection-start-line="11" selection-start-column="52" selection-end-line="11" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/booth/history.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/remove.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/create.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clustermaster/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clustermaster/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="50" lean-forward="true" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clustermaster/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -770,61 +762,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/voters/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/clustermaster/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="-92">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/booth/activation.html">
+    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/booth/history.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/remove.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustermaster/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustermaster/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="216">
+          <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
         </state>
       </provider>
     </entry>

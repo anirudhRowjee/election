@@ -10,6 +10,7 @@ cluster_urls = [
 booth_urls = [
     path('control/<int:booth_id>/', views.control_booth, name='control_booth'),
     path('history/<int:booth_id>/', views.show_history_booth, name='booth_history'),
+    path('mainmenu/', views.booth_mainmenu, name='booth_mainmenu')
 ]
 
 urlpatterns = [
