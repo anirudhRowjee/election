@@ -38,7 +38,26 @@ def create_elections(request):
 
 
 def activate_elections(request):
-    pass
+    if request.method == 'POST':
+
+        uname = request.POST['superuser_username']
+        p1 = request.POST['superuser_password_1']
+        p2 = request.POST['superuser_password_2']
+        if p1 == p2:
+            if auth.authenticate(request, username=uname, password=p1) is not None:
+                election_id = request.POST['election_id']
+                election_tba = e_models.Election.objects.get(id=election_id)
+                election_tba.is_active = True
+                election_tba.save()
+                elections = e_models.Election.objects
+                return render(request, 'elections/all.html', {'elections':elections})
+            else:
+                posts = e_models.Posts.objects
+                return render(request, 'posts/delete.html',
+                              {'error': 'WRONG USERNAME/PASSWORD', 'posts': posts})
+    else:
+        elections = e_models.Election.objects.filter(is_active=False)
+        return render(request, 'elections/activate.html', {'elections': elections})
 
 
 def declare_elections(request):

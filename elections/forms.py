@@ -13,8 +13,8 @@ class AddNewPost(forms.Form):
 
 
 class AddElection(ModelForm):
-
     class Meta:
         model = models.Election
         fields = ['year', 'election_number', 'type']
+
 

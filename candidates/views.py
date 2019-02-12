@@ -33,13 +33,13 @@ def add(request):
             slogan=request.POST.get('slogan', False),
             candidate_class= voter_class,
         )
-        v_models.Voters.objects.get(voter_id=voter_id).is_candidate = 'Y'
-        v_models.Voters.objects.get(voter_id=voter_id).save()
+        rest.is_candidate = True
+        rest.save()
         return render(request, 'candidates_admin/view_all.html', {'candidates':candidates})
     else:
-        voters = v_models.Voters.objects.filter(is_candidate='N')
+        voters = v_models.Voters.objects.filter(is_candidate=False)
         posts = e_models.Posts.objects.all()
-        elections = e_models.Election.objects.filter(is_active=False)
+        elections = e_models.Election.objects.filter(is_active=True)
         return render(request, 'candidates_admin/add.html', {'voters':voters, 'posts':posts, 'elections':elections})
 
 
@@ -60,11 +60,16 @@ def delete(request):
                 print(candidate_id)
                 candidate_tbd = c_models.Candidate.objects.get(id=candidate_id)
                 print(candidate_tbd.voter_id)
-                v_models.Voters.objects.get(name=candidate_tbd.voter_id).is_candidate = 'N'
-                v_models.Voters.objects.get(name=candidate_tbd.voter_id).save()
+                candidate = v_models.Voters.objects.get(name=candidate_tbd.voter_id)
+                candidate.is_candidate = False
+                candidate.save()
                 candidate_tbd.delete()
                 return render(request, 'candidates_admin/view_all.html',{'error': 'please populate', 'candidates':candidates})
             else:
                 return render(request, 'candidates_admin/view_all.html',{'error': 'WRONG USERNAME/PASSWORD', 'candidates':candidates})
+        else:
+            return render(request, 'candidates_admin/view_all.html',
+                          {'error': 'Passwords do not match', 'candidates': candidates})
+
     else:
         return render(request, 'candidates_admin/delete.html', {'candidates':candidates})

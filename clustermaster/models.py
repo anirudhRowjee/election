@@ -1,11 +1,6 @@
 from django.db import models
 from voters import models as voter_models
 import elections
-# Create your models here.
-
-
-def do_nothing():
-    pass
 
 
 class Cluster(models.Model):
@@ -28,8 +23,8 @@ class Booth(models.Model):
     username = models.CharField(max_length=11, unique=True)
     password = models.CharField(max_length=20)
     location = models.CharField(max_length=50)
-    #last_voter = models.ForeignKey(voter_models.Voters, on_delete=models.DO_NOTHING, default='unknown')
-    status = models.BooleanField(default=False)
+    booth_status = models.BooleanField(default=False)
+    assigned_voter = models.CharField(default='NOBODY')
 
     def __str__(self):
         return 'booth_' + str(self.id)

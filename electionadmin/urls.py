@@ -8,4 +8,5 @@ urlpatterns = [
     path('voters/', include('voters.urls'), name='voters'),
     path('elections/', include('elections.urls'), name='elections'),
     path('candidates/', include('candidates.urls'), name='candidates'),
+    path('clusters/', include('clustermaster.urls'), name='clustermaster'),
 ]

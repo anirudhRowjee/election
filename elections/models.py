@@ -20,6 +20,10 @@ class Election(models.Model):
         name = self.type + ' ' + str(self.year)
         return name
 
+    def pretty_name(self):
+        name = self.type + ' ' + str(self.year) + ' ' + str(self.election_number)
+        return name
+
 
 
 class Posts(models.Model):
