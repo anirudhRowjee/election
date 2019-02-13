@@ -15,8 +15,31 @@
     <br>
     <br>
     {%  if user.is_authenticated %}
-        <a href="{% url 'cluster_mainmenu' %}" class="btn btn-primary"> Clusters </a>
-        <a href="{% url 'booth_mainmenu' %}" class="btn btn-primary"> Booths </a>
+        <div class="container" style="border:solid 2px black; white-space:normal ;">
+        <form id="election_chooser">
+
+        </form>
+            <button class="btn btn-primary" style="float:right;"  data-toggle="modal" data-target="#myModal"> Add Cluster </button>
+        </div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+            <h4 class="modal-title"> Add Cluster </h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+      </div>
+      <div class="modal-body">
+          <iframe src="{% url 'add_cluster' %}" style="size: auto"></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
     {% endif %}
     </div>
 

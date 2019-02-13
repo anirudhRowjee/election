@@ -1,44 +1,27 @@
 from django.shortcuts import render
-from clustermaster import models
+from clustermaster import models as cl_models
+from elections import models as e_models
 # Create your views here.
 from uuid import uuid4 as pwd
 
-def mainmenu(request):
-    return render(request, 'clustermaster/mainmenu.html')
+
+def clustermaster(request):
+    if request.method == 'POST':
+        pass
+    else:
+        clusters = cl_models.Cluster.objects
+        elections = e_models.Election.objects
+        return render(request, 'clustermaster/mainmenu.html', {'clusters': clusters, 'elections': elections})
+
+
+def add_cluster(request):
+    if request.method == 'POST':
+        pass
+    else:
+        return render(request, 'clustermaster/cluster/create.html')
 
 # Cluster management
 
-def cluster_mainmenu(request):
-    pass
 
-def add_cluster(request):
-    pass
 
-def delete_cluster(request):
-    pass
 
-def activate_cluster(request):
-    pass
-
-def deactivate_cluster(request):
-    pass
-
-# Booth Management
-
-def create_booth(request):
-    pass
-
-def delete_booth(request):
-    pass
-
-def control_booth(request):
-    pass
-
-def show_history_booth(request):
-    pass
-
-def send_voter_to_booth(request):
-    pass
-
-def booth_mainmenu(request):
-    pass
