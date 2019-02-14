@@ -1,10 +1,11 @@
 {%  load staticfiles %}
 <div class="container">
     <form method="POST" id="create" style="display:flex; flex-direction:column;" action="{% url 'add_cluster'%}">
+        {% csrf_token %}
         <br>
-        {{ form }}
+            {{ form }}
         <br>
-        <button type="submit" class="btn btn-primary"> Create Cluster </button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal"> Create Cluster </button>
     </form>
 </div>
 

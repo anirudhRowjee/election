@@ -7,14 +7,11 @@ import elections
 class Cluster(models.Model):
 
     def __str__(self):
-        return 'cluster_' + str(self.id)
-
-    def get_username(self):
-        return 'cluster_' + str(self.id)
+        return 'cluster ' + str(self.id)
 
     capacity = models.IntegerField(default=30)
     status = models.BooleanField(default=False)
-    username = models.CharField(max_length=11, unique=True)
+    username = models.CharField(max_length=50)
     password = models.CharField(max_length=20)
     location = models.CharField(max_length=50)
     election = models.ForeignKey(e_models.Election, on_delete=models.DO_NOTHING, null=True)

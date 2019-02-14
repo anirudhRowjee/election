@@ -22,11 +22,8 @@ def create_elections(request):
     if request.method == 'POST':
         f = AddElection(request.POST)
         if f.is_valid():
-            try:
-                f.save()
-            except IntegrityError as e:
-                form = AddElection()
-                return render(request, 'elections/create.html', {'form':form, 'error': 'Duplicate Data'})
+            f.save()
+            form = AddElection()
             elections = e_models.Election.objects
             return render(request, 'elections/all.html', {'elections':elections})
         else:

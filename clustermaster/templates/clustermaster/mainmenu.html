@@ -23,31 +23,94 @@
     <br>
     <br>
     {%  if user.is_authenticated %}
-        <div class="container" style="border:solid 2px black; white-space:normal ;">
+        <div class="container" style="white-space:normal ;">
         <form id="election_chooser">
 
         </form>
             <button class="btn btn-primary" style="float:right;"  data-toggle="modal" data-target="#myModal"> Add Cluster </button>
+        <br>
+        <br>
+        {% for election in elections.all %}
+            <h2> Election : {{ election.pretty_name }}</h2>
+                {% for cluster in clusters.all %}
+                {% if cluster.election == election %}
+                        <div class="container row"  id='cluster_info_container' style="border:2px solid blue;">
+                    <div class="col-3">
+                        <div class="row">
+                            <h1>{{ cluster }}</h1>
+                        </div>
+                        <div class="row">
+                            <h2>{{ cluster.location }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-5">
+                        <div class="row">
+                            <h2> Username :{{ cluster.username }}</h2>
+                        </div>
+                        <div class="row">
+                            <h2>Password :{{ cluster.password }}</h2>
+                        </div>
+                    </div>
+                <div class="col-2" style="align-items: center">
+                    <div class="row">
+                        {% if cluster.status == False %}
+                        <a href="{% url 'delete_cluster' cluster.id %}"  class="btn btn-primary"> Delete Cluster </a>
+                        {% endif %}
+                    </div>
+                    <br>
+                    <div class="row">
+                        {% if cluster.status == True %}
+                        <a href="{% url 'togglecluster' cluster_id=cluster.id  status=0 %}"  class="btn btn-primary"> Deactivate Cluster </a>
+                        {% else %}
+                        <a href="{% url 'togglecluster' cluster_id=cluster.id  status=1 %}"  class="btn btn-primary"> Activate Cluster </a>
+                        {% endif %}
+                    </div>
+                </div>
+                </div>
+                {% endif %}
+                    <br>
+            {% endfor %}
+            <hr>
+        {% endfor %}
+
+
         </div>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="height:auto; overflow:">
+              <div class="modal-header">
+                    <h4 class="modal-title"> Add Cluster </h4>
+              </div>
+              <div class="modal-body">
+                    <iframe src="{% url 'add_cluster' %}" height='60%' frameborder="False"></iframe>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="history.go(0)">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <!-- Modal content-->
-    <div class="modal-content" style="height:auto; overflow:">
-      <div class="modal-header">
-            <h4 class="modal-title"> Add Cluster </h4>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div id="AuthModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="height:auto; overflow:">
+              <div class="modal-header">
+                    <h4 class="modal-title"> Authenticate Yourself </h4>
+              </div>
+              <div class="modal-body">
+                    <iframe src="{% url 'add_cluster' %}" height='60%' frameborder="False"></iframe>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="history.go(0)">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      </div>
-      <div class="modal-body">
-          <iframe src="{% url 'add_cluster' %}" style="border: none; width:auto; height:60%;"></iframe>
-      </div>
-    </div>
-
-  </div>
-</div>
     {% endif %}
     </div>
 
