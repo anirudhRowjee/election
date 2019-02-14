@@ -1,11 +1,12 @@
 {% load staticfiles %}
 <html lang="en" class="gr__getbootstrap_com"><head>
-    <link rel="shortcut icon" href="{% static 'logo.jpg' %}" type="image/png">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'assets/logo.jpg' %}" type="image/png">
     <title>FIS EES</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -24,7 +25,7 @@
   <div class='container'>
       <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="{% url 'runtime_mainmenu' %}">
       <img src="{% static 'logo.jpg' %}" class="d-inline-block align-top" height="50" width="50">
       Electronic Election System
       </a>
@@ -41,7 +42,7 @@
           <input type="hidden">
       </form>
       {% else %}
-      <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+      <a class="nav-item nav-link" href="{% url 'login' %}">Administrator</a>
        {% endif %}
 
     </div>

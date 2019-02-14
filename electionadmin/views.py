@@ -10,6 +10,9 @@ import csv
 from datetime import datetime
 
 
+def is_admin(user):
+    return user.groups.filter(name='Superuser').exists()
+
 # Create your views here.
 def redirect_to_voters(request):
     return redirect('')
@@ -30,7 +33,7 @@ def login(request):
 def logout(request):
     if request.method == 'POST':
         auth.logout(request)
-        return redirect('home')
+        return render(request, 'electionadmin/logged_out.html')
 
 
 @login_required()
