@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9cc0526-9bc0-4ea6-bc77-3190561b2ad2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/clustermaster/templates/clustermaster/has_been_deleted.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clustermaster/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustermaster/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clustermaster/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustermaster/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clustermaster/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustermaster/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/clustermaster/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustermaster/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elections/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +34,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clustermaster/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+            <state relative-caret-position="115">
+              <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -49,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/clustermaster/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+            <state relative-caret-position="276">
+              <caret line="75" column="21" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -64,7 +58,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clustermaster/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
+            <state relative-caret-position="161">
               <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
               <folding>
                 <element signature="e#0#37#0" expanded="true" />
@@ -73,17 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9">
+            <state relative-caret-position="299">
               <caret line="61" column="44" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
-              <folding>
-                <element signature="e#529#557#0#HTML" expanded="true" />
-                <element signature="e#1059#1089#0#HTML" expanded="true" />
-                <element signature="e#1804#1831#0#HTML" expanded="true" />
-                <element signature="e#3535#3565#0#HTML" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +80,7 @@
         <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/has_been_changed.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="184">
-              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -170,12 +158,12 @@
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/cluster/create.html" />
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/has_been_created.html" />
         <option value="$PROJECT_DIR$/elections/views.py" />
-        <option value="$PROJECT_DIR$/clustermaster/models.py" />
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/has_been_deleted.html" />
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/has_been_changed.html" />
         <option value="$PROJECT_DIR$/clustermaster/urls.py" />
-        <option value="$PROJECT_DIR$/clustermaster/views.py" />
         <option value="$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html" />
+        <option value="$PROJECT_DIR$/clustermaster/models.py" />
+        <option value="$PROJECT_DIR$/clustermaster/views.py" />
       </list>
     </option>
   </component>
@@ -305,12 +293,13 @@
       <workItem from="1550071228858" duration="141000" />
       <workItem from="1550071392918" duration="5929000" />
       <workItem from="1550121067081" duration="5401000" />
-      <workItem from="1550131520490" duration="11980000" />
+      <workItem from="1550131520490" duration="12664000" />
+      <workItem from="1550156672576" duration="5923000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="150916000" />
+    <option name="totallyTimeSpent" value="157523000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -329,7 +318,7 @@
       <window_info content_ui="combo" id="Project" order="1" weight="0.19667171" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49924356" weight="0.33285093" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49924356" visible="true" weight="0.33285093" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.3299566" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3299566" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3299566" />
@@ -702,7 +691,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/clustermaster/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
+        <state relative-caret-position="161">
           <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
@@ -713,14 +702,21 @@
     <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/has_been_changed.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
-          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="61" column="44" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/clustermaster/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        <state relative-caret-position="115">
+          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
@@ -729,23 +725,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/clustermaster/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="60" column="26" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+        <state relative-caret-position="276">
+          <caret line="75" column="21" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustermaster/templates/clustermaster/mainmenu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9">
-          <caret line="61" column="44" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
-          <folding>
-            <element signature="e#529#557#0#HTML" expanded="true" />
-            <element signature="e#1059#1089#0#HTML" expanded="true" />
-            <element signature="e#1804#1831#0#HTML" expanded="true" />
-            <element signature="e#3535#3565#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

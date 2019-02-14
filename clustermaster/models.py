@@ -18,8 +18,8 @@ class Cluster(models.Model):
 
 
 class Booth(models.Model):
-    cluster = models.ForeignKey(Cluster, on_delete=models.DO_NOTHING)
-    username = models.CharField(max_length=11, unique=True)
+    cluster = models.ForeignKey(Cluster, on_delete=models.CASCADE)
+    username = models.CharField(max_length=50, unique=True)
     password = models.CharField(max_length=20)
     location = models.CharField(max_length=50)
     booth_status = models.BooleanField(default=False)
