@@ -1,8 +1,10 @@
 {%  load staticfiles %}
-<form method="POST" id="create">
-    <p> Cluster Creation Form</p>
-    <button type="button" class="btn btn-primary"> Add Cluster </button>
-    </button>
-</form>
+<div class="container">
+    <form method="POST" id="create" style="display:flex; flex-direction:column;" action="{% url 'add_cluster'%}">
+        <br>
+        {{ form }}
+        <br>
+        <button type="submit" class="btn btn-primary"> Create Cluster </button>
+    </form>
+</div>
 
-</form>

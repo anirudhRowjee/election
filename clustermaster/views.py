@@ -3,7 +3,7 @@ from clustermaster import models as cl_models
 from elections import models as e_models
 # Create your views here.
 from uuid import uuid4 as pwd
-
+from . import forms
 
 def clustermaster(request):
     if request.method == 'POST':
@@ -16,9 +16,11 @@ def clustermaster(request):
 
 def add_cluster(request):
     if request.method == 'POST':
-        pass
+        form = forms.AddCluster(request.POST)
+
     else:
-        return render(request, 'clustermaster/cluster/create.html')
+        form = forms.AddCluster()
+        return render(request, 'clustermaster/cluster/create.html', {'form':form})
 
 # Cluster management
 

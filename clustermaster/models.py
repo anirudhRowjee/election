@@ -1,5 +1,6 @@
 from django.db import models
 from voters import models as voter_models
+from elections import models as e_models
 import elections
 
 
@@ -16,6 +17,7 @@ class Cluster(models.Model):
     username = models.CharField(max_length=11, unique=True)
     password = models.CharField(max_length=20)
     location = models.CharField(max_length=50)
+    election = models.ForeignKey(e_models.Election, on_delete=models.DO_NOTHING, null=True)
 
 
 class Booth(models.Model):
