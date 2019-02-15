@@ -6,3 +6,4 @@ class AddCluster(forms.ModelForm):
     class Meta:
         model = models.Cluster
         fields = ['capacity', 'location', 'election']
+

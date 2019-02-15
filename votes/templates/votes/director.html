@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% if type == 'c' %}
+        <h1> YOU ARE ABOUT TO MANAGE CLUSTER {{ cluster.id }}</h1>
+        <h2> Click Below to Proceed </h2>
+        <a href="{% url 'cluster' cluster_id=cluster.id %}" class="btn btn-primary"> Manage Cluster {{ cluster.id }} </a>
+    {% endif %}
+     {% if type == 'v' %}
+         <h1> YOU ARE ABOUT TO ENTER VOTING RUNTIME FOR BOOTH {{ booth.id }}</h1>
+        <h2> Click Below to Proceed </h2>
+        <a href="{% url 'vote' booth_id=booth.id %}" class="btn btn-primary"> Begin Voting for Booth {{ booth.id }} </a>
+    {% endif %}
+
+
+{% endblock %}

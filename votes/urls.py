@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='vote_mainmenu'),
-    path('vote/', views.vote, name='vote'),
-    path('cluster/', views.cluster, name='cluster'),
+    path('vote/<int:booth_id>/', views.vote, name='vote'),
+    path('cluster/<int:cluster_id>/', views.cluster, name='cluster'),
 ]
 

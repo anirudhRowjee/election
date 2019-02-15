@@ -18,10 +18,14 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from votes import views
-from django.views.generic.base import TemplateView
+
+
 urlpatterns = [
     path('270302081101250402/', admin.site.urls),
     path('admin/', include('electionadmin.urls')),
     path('', views.home, name='runtime_mainmenu'),
+    path('logout/', views.logout, name='logout'),
+    path('cluster/<int:cluster_id>/', views.cluster, name='cluster'),
+    path('vote/<int:booth_id>/', views.vote, name='vote'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

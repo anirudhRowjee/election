@@ -24,6 +24,8 @@ def add_cluster(request):
         form = forms.AddCluster(request.POST)
         if form.is_valid():
             cluster = form.save(commit=False)
+            if cluster.election.is_active == False:
+                return render()
             cluster.password = pwd.uuid4().hex.upper()[0:6]
             try:
                 cluster.save()

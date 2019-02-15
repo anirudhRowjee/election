@@ -9,3 +9,7 @@ th, td{
 *{
     font-family: Ubuntu;
 }
+
+.booth_info_container{
+    border: 2px solid blue;
+}

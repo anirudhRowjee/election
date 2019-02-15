@@ -45,19 +45,22 @@
                     </div>
                     <div class="col-5">
                         <div class="row">
-                            <h2> Username :{{ cluster.username }}</h2>
+                            <h3> Username :{{ cluster.username }}</h3>
                         </div>
                         <div class="row">
-                            <h2>Password :{{ cluster.password }}</h2>
+                            <h3>Password :{{ cluster.password }}</h3>
+                        </div>
+                        <div class="row">
+                            <h3> Active Booths : {{ cluster.capacity }}</h3>
                         </div>
                     </div>
-                <div class="col-2" style="align-items: center">
+                <div class="col-2" style="align-items: center;">
                     <div class="row">
                         {% if cluster.status == False %}
                         <a href="{% url 'delete_cluster' cluster.id %}"  class="btn btn-primary"> Delete Cluster </a>
                         {% endif %}
                     </div>
-                    <br>
+                <p></p>
                     <div class="row">
                         {% if cluster.status == True %}
                         <a href="{% url 'togglecluster' cluster_id=cluster.id  status=0 %}"  class="btn btn-primary"> Deactivate Cluster </a>

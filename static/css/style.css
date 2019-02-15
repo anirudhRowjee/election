@@ -9,3 +9,8 @@ th, td{
 *{
     font-family: Ubuntu;
 }
+
+.boothcontainer{
+    background-color: #609ab6;
+    color: #5b80b2;
+}
