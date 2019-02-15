@@ -1,66 +1,139 @@
 {% load staticfiles %}
-<html lang="en" class="gr__getbootstrap_com"><head>
+<html lang="en" class="gr__getbootstrap_com">
+<head>
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'assets/logo.jpg' %}" type="image/png">
     <title>FIS EES</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
+        body {
+            margin: 0%;
         }
-      }
+
+        .header {
+            padding: 10px;
+            text-align: center;
+            background: #505050;
+            color: white;
+            font-size: 20px;
+            width: 100%;
+        }
+
+        .navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar li {
+            display: block;
+            padding: 4px 8px;
+        }
+
+        .login_btn,
+        .logout_btn {
+            color: white;
+            float: right;
+            text-decoration: none;
+            border: none;
+        }
+
+        .logout_btn:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .login_btn:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
     </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- Custom styles for this template -->
-  </head>
-  <body data-gr-c-s-loaded="true" style="">
-  <div class='container'>
-      <header>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="{% url 'runtime_mainmenu' %}">
-      <img src="{% static 'logo.jpg' %}" class="d-inline-block align-top" height="50" width="50">
-      Electronic Election System
-      </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto">
 
-      {% if user.is_authenticated %}
-        <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Log Out</a>
-      <form id="logout" method="POST" action="{% url 'logout' %}">
-          {% csrf_token %}
-          <input type="hidden">
-      </form>
-      {% else %}
-      <a class="nav-item nav-link" href="{% url 'login' %}">Administrator</a>
-       {% endif %}
+</head>
 
-    </div>
-  </div>
-</nav>
-</header>
+<body data-gr-c-s-loaded="true" style="">
 
-  </div>
+<div class="header" id="main">
+    <ul class="navbar">
+        <li style="float:left; position: relative;">
+            <a class="navbar-brand" href="{% url 'runtime_mainmenu' %}">
+                <img src="{% static 'logo.jpg' %}" class="d-inline-block align-top" height="50" width="50" style="float:left;">
+            </a>
+        </li>
+        <li></li>
+        <li>
+            <h1 style="padding-left:40px;">
+                <b>Electronic Election System</b>
+            </h1>
+        </li>
+        <li>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </li>
 
+        <li>
+            <div class="" id="">
+                <div class="">
+
+                    {% if user.is_authenticated %}
+                        <button class="btn btn-danger" style="margin-top: 10px;">
+                            <a class="logout_btn" href="javascript:{document.getElementById('logout').submit()}">
+                                Log Out
+                            </a>
+                        </button>
+                        <form id="logout" method="POST" action="{% url 'logout' %}">
+                            {% csrf_token %}
+                            <input type="hidden">
+                        </form>
+
+                    {% else %}
+                        <button class="btn btn-primary" style="margin-top: 10px;">
+                            <a class="login_btn" href="{% url 'login' %}">
+                                Administrator
+                            </a>
+                        </button>
+                    {% endif %}
+
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>
 
 <div class="container">
     {% block content %}
-    {%endblock%}
+    {% endblock %}
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
 
-</body></html>
+</body>
+</html>
