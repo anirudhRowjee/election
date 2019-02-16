@@ -79,7 +79,7 @@
     <ul class="navbar">
         <li style="float:left; position: relative;">
             <a class="navbar-brand" href="{% url 'login' %}">
-                <img src="{% static 'logo.jpg' %}" class="d-inline-block align-top" height="50" width="50"
+                <img src="{% static 'assets/logo.jpg' %}" class="d-inline-block align-top" height="50" width="50"
                      style="float:left;">
             </a>
         </li>
@@ -103,7 +103,7 @@
                         <button class="btn btn-danger">
                             <a class="logout_btn" href="javascript:{document.getElementById('logout').submit()}">
                                 Log Out
-                            </a>s
+                            </a>
                         </button>
                         <form id="logout" method="POST" action="{% url 'logout_a' %}">
                             {% csrf_token %}

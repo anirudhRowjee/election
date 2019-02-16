@@ -13,3 +13,7 @@ th, td{
 .booth_info_container{
     border: 2px solid blue;
 }
+
+.test{
+    background-color: #205067;
+}

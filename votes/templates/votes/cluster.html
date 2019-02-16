@@ -29,22 +29,6 @@
                             <h3> Current Voter : {{ booth.assigned_voter }}</h3>
                         </div>
                     </div>
-                <div class="col-2" style="align-items: center;">
-                    <div class="row">
-                        {% if booth.status == False %}
-                        <a href="{% url 'delete_cluster' cluster.id %}"  class="btn btn-primary"> Delete Booth </a>
-                        {% endif %}
-                    </div>
-                <p></p>
-                    <div class="row">
-                        {% if booth.status == True %}
-                        <a href="{% url 'togglecluster' cluster_id=cluster.id  status=0 %}"  class="btn btn-primary"> Deactivate Booth </a>
-                        {% else %}
-                        <a href="{% url 'togglecluster' cluster_id=cluster.id  status=1 %}"  class="btn btn-primary"> Activate Booth </a>
-                        {% endif %}
-                    </div>
-                </div>
-                </div>
         <br>
     {% endfor %}
 {% endblock %}

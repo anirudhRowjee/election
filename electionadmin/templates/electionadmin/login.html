@@ -12,19 +12,21 @@
                  document.getElementById('redirect_to_home').submit()
             </script>
 {% endif %}
-<div class="container text-center">
-    <form method="POST" action="{% url 'login' %}">
-    {% csrf_token %}
-    <br>
-    <input type="text" name="username" placeholder="username">
-    <br>
-    <input type="password" name="password" placeholder="password">
-    <br>
-    <br>
-    <input class='btn btn-primary' type="submit" value="login">
-</form>
-    <a href="/" class="btn btn-primary"> Home </a>
-</div>
+    <div class="container text-center">
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div align="center">
+                <br>
+                <input class="form-control" style="width:30%;" type="text" name="username" placeholder="username">
+                <br>
+                <input class="form-control" style="width:30%;" type="password" name="password" placeholder="password">
+                <br>
+                <br>
+                <input class='btn btn-primary' type="submit" value="login">
+            </div>
+        </form>
+        <a href="/" class="btn btn-primary"> Home </a>
+    </div>
 
 
 {% endblock %}

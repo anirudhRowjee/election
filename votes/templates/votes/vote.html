@@ -1,21 +1,31 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
-    <h1> voting interface </h1>
-    <h2> Booth ID : {{ booth.id }}</h2>
-    <p id ='error'></p>
-    <p hidden id="voterid">samplevoterid</p>
+
+
+    <div class="text-center">
+        <br>
+        <p style="font-size:150px;"> Booth ID : {{ booth.id }}</p>
+        <br>
+        <p id='error'></p>
+        <p hidden id="voterid">sid</p>
+        <button class="btn btn-primary" id='authtrigger' onclick="authvoter()"> Begin Voting</button>
+    </div>
 
     <style>
-                /* Logo of candidate 1 */
         .logo {
-            grid-column: 1;
+            width: 50px;
+            height:auto;
         }
 
         /* candidate 1 name */
         .candidate_namelbl {
+            background-color: transparent;
+            border: 1px grey;
             font-size: 20px;
-            grid-column: 2;
+        }
+        .candidate_statuslbl {
+            font-size: 15px;
         }
 
         /* Candidate Card */
@@ -37,9 +47,7 @@
         .p_candidate_input {
             margin: 10px;
             padding: 20px;
-            display : grid;
-            grid-template-columns: 100px 100px;
-            grid-template-rows: auto;
+            height: 100px;
             transition: 0.4s ease;
         }
 
@@ -48,30 +56,27 @@
             cursor: pointer;
         }
 
-
-
         /* When the candidate radio button is clicked then show shadow */
         .p_candidate_btn:checked + .p_candidate_input {
             box-shadow: 0 0 3px 3px green;
 
         }
+        .p_candidate_btn:not(:checked) + .p_candidate_input {
+            border: 3px solid red;
 
-        .submit_vote {
-            grid-column: 2 / span 1;
-            grid-row: inherit;
-            padding: 10px;
-            background: transparent;
-            border: 2px  solid black;
-            border-radius: 15px;
-            font-size : 20px;
-            color: black;
-            transition: 0.5s ease;
         }
 
-        .submit_vote:hover {
-            background: green;
-            color: white;
-            border: 2px 2px 0 0 solid black;
+        .post_box {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            padding: 20px;
+            border: 1px solid grey;
+        }
+
+        .voting_grid {
+            display: flex;
+            flex-direction: row;
         }
     </style>
 
@@ -82,7 +87,7 @@
             var u_voterid = prompt('Please Enter the Voter ID');
             if (o_voterid == u_voterid){
                 document.getElementById('voterinterface').style.display = 'block';
-                document.getElementById('error').innerHTML = 'correct';
+                document.getElementById('error').style.display = 'none';
                 document.getElementById('authtrigger').style.display = 'none';
             }
             else{
@@ -93,19 +98,18 @@
 
     </script>
 
-    <button class="btn btn-primary" id='authtrigger' onclick="authvoter()"> Begin Voting </button>
 
 
-    <div id="voterinterface" style="display: none;">
-        <div class="voting_grid">
+
+    <div id="voterinterface" class="voterinterface" style="display: none;">
+        <div class="">
         <form action="{% url 'vote' booth_id=booth.id %}" method="POST">
-            <div class="container">
+            <div class="container voting_grid">
                 {% csrf_token %}
                 {% for post in posts %}
                     <! for each post>
-                    <div class="col-md-6">
-                        <h2>{{ post }}</h2>
-                        <hr>
+                    <div class="col-md-6 post_box">
+                        <h2 class="text-center">{{ post }}</h2>
                         <! for each of the posts each candidate gets a box>
                         <div>
                             {% for candidate in candidates %}
@@ -123,11 +127,11 @@
                                                 <div class="p_candidate_input">
                                                     <div class="row">
                                                         <div class="col">
-                                                            <img src="{{ candidate.logo.url }}" class="img-fluid" height="100px" width="200px"> <br><br>
+                                                            <img src="{{ candidate.logo.url }}" class="img-fluid logo" height="100px" width="200px"> <br><br>
                                                         </div>
                                                         <div class="col">
                                                             <label class="candidate_namelbl">{{ candidate.name }}</label>
-                                                            <label class="candidate_namelbl">{{ candidate.slogan }}</label>
+                                                            <label class="candidate_statuslbl">{{ candidate.slogan }}</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -140,7 +144,10 @@
                 {% endfor %}
             </div>
             <br><br>
-            <input type="submit" value="VOTE NOW" class="submit_vote">
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">VOTE NOW</button>
+            </div>
+
             <br><br>
             <br><br>
         </form>

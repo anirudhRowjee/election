@@ -16,10 +16,16 @@
     <br>
     {%  if user.is_authenticated %}
         <h2> Welcome, {{ user }}</h2>
-        <a href="/admin/voters/mainmenu" class="btn btn-primary"> Voters </a>
-        <a href="/admin/elections/mainmenu" class="btn btn-primary"> Elections </a>
-        <a href="/admin/candidates/mainmenu" class="btn btn-primary"> Candidates </a>
-        <a href="{%  url 'clustermaster_mainmenu' %}" class="btn btn-primary"> Clusters </a>
+        <div class="d-flex flex-sm-column bd-highlight" style="padding: 20px;" align="center">
+            <a href="/admin/voters/mainmenu" class="btn btn-primary"> Voters </a>
+            <br>
+            <a href="/admin/elections/mainmenu" class="btn btn-primary"> Elections </a>
+            <br>
+            <a href="/admin/candidates/mainmenu" class="btn btn-primary"> Candidates </a>
+            <br>
+            <a href="{%  url 'clustermaster_mainmenu' %}" class="btn btn-primary"> Clusters </a>
+        </div>
+
     {% endif %}
     </div>
 

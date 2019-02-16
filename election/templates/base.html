@@ -1,14 +1,14 @@
 {% load staticfiles %}
+{% load static %}
 <html lang="en" class="gr__getbootstrap_com">
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'assets/logo.jpg' %}" type="image/png">
     <title>FIS EES</title>
-
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
     <style>
         body {
             margin: 0%;
@@ -74,7 +74,7 @@
     <ul class="navbar">
         <li style="float:left; position: relative;">
             <a class="navbar-brand" href="{% url 'runtime_mainmenu' %}">
-                <img src="{% static 'logo.jpg' %}" class="d-inline-block align-top" height="50" width="50" style="float:left;">
+                <img src="{% static 'assets/logo.jpg' %}" class="d-inline-block align-top" height="50" width="50" style="float:left;">
             </a>
         </li>
         <li></li>
@@ -93,7 +93,6 @@
         <li>
             <div class="" id="">
                 <div class="">
-
                     {% if user.is_authenticated %}
                         <button class="btn btn-danger" style="margin-top: 10px;">
                             <a class="logout_btn" href="javascript:{document.getElementById('logout').submit()}">

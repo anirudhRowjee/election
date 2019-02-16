@@ -5,13 +5,13 @@
 {{ error }}
 <br>
 {%endif%}
-    <div class="container text-center">
-        <h1> {{  message }}</h1>
     <h1 class="text-center">
         FIS-EES ADMIN INTERFACE
-                <br>
+        <br>
         POPULATE VOTER DATABASE
     </h1>
+    <div class="container text-center" style="max-width: 60%;">
+        <h1> {{  message }}</h1>
         <form method="POST" action="{% url 'populate' %}" enctype="multipart/form-data">
             {% csrf_token %}
             <br>

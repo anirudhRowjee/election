@@ -12,9 +12,13 @@
         <br>
         VOTER ADMINISTRATION
     </h1>
-    <a href="{% url 'view' %}" class="btn btn-primary"> VIEW ALL VOTERS </a>
-    <a href="{% url 'populate' %}" class="btn btn-primary"> POPULATE VOTER DATABASE </a>
-    <a href="{% url 'delete_v' %}" class="btn btn-primary"> DELETE ALL VOTERS </a>
+    <div class="d-flex flex-sm-column bd-highlight" style="padding: 20px;" align="center">
+        <a href="{% url 'view' %}" class="btn btn-primary"> VIEW ALL VOTERS </a>
+        <br>
+        <a href="{% url 'populate' %}" class="btn btn-primary"> POPULATE VOTER DATABASE </a>
+        <br>
+        <a href="{% url 'delete_v' %}" class="btn btn-primary"> DELETE ALL VOTERS </a>
+    </div>
     </div>
 
 {% endblock %}
