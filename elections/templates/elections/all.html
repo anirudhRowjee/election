@@ -13,7 +13,7 @@
         VIEW ALL ELECTIONS
     </h1>
     {%  if elections.count == 0 %}
-        <h1> PLEASE <a href="add"> ADD ELECTION </a></h1>
+        <h1> PLEASE <a href="{% url 'create_election' %}"> ADD ELECTION </a></h1>
 
     {%  else %}
         <div style="overflow:auto; position:relative;" class="text-center">

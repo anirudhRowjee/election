@@ -15,3 +15,6 @@ class Vote(models.Model):
     election = models.ForeignKey(e_models.Election, on_delete=models.DO_NOTHING)
     votertype = models.ForeignKey(e_models.VoterTypes, on_delete=models.DO_NOTHING)
     vote_is_good = models.BooleanField(default=True)
+
+    def __str__(self):
+        return str(self.voter.voter_id) + ' has voted for ' + str(self.candidate)

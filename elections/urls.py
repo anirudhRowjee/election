@@ -8,6 +8,7 @@ election_urls = [
     path('declare/', views.declare_elections, name='declare_election'),
     path('reset/', views.reset_elections, name='reset_election'),
     path('all/', views.all_elections, name='all_election'),
+    path('live/', views.live_results, name='live_results')
 ]
 
 posts_urls = [

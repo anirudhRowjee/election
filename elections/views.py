@@ -5,6 +5,7 @@ from .forms import *
 from django.contrib import auth
 from django.db import IntegrityError
 # Create your views here.
+from candidates import models as c_models
 
 
 @login_required()
@@ -169,3 +170,14 @@ def all_votertype(request):
     votertypes = e_models.VoterTypes.objects
     return render(request, 'votertypes/all.html', {'votertypes':votertypes})
 
+
+def live_results(request):
+    if request.method == 'POST':
+        election_id = request.POST['election']
+        election = e_models.Election.objects.get(id=election_id)
+        candidates = c_models.Candidate.objects.all().filter(election=election)
+        posts = e_models.Posts.objects.all()
+        return render(request, 'elections/live.html', {'chosenelection': election, 'candidates':candidates, 'posts':posts})
+    else:
+        elections = e_models.Election.objects
+        return render(request, 'elections/live.html', {'elections':elections, 'chosenelection':None})

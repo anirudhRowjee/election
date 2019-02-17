@@ -15,7 +15,7 @@ class Candidate(models.Model):
     image = models.ImageField(upload_to='media/candidates/images')
     logo = models.ImageField(upload_to='media/candidates/logos')
     slogan = models.CharField(max_length=30)
-    votes = models.IntegerField(null=True, blank=True)
+    votes = models.IntegerField(default=0)
     is_active = models.BooleanField(default=False)
 
     def __str__(self):

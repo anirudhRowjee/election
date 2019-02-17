@@ -4,9 +4,11 @@ from clustermaster import models as cl_models
 from elections import models as e_models
 from voters import models as voter_models
 from candidates import models as c_models
+from . import models as vote_models
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
+from django.core.exceptions import ObjectDoesNotExist
 
 
 def home(request):
@@ -35,29 +37,93 @@ def logout(request):
         auth.logout(request)
         return render(request, 'logged_out.html')
 
+
 @login_required()
 def cluster(request, cluster_id='None'):
-    cluster_o = cl_models.Cluster.objects.get(id=cluster_id)
-    booths = cl_models.Booth.objects.all().filter(cluster=cluster_o)
-    return render(request, 'votes/cluster.html', {'cluster':cluster_o, 'booths':booths})
+    if request.method == 'POST':
+        voter_id = request.POST['voter_id']
+        cluster_id = request.POST['cluster']
+        cluster_tbv = cl_models.Cluster.objects.get(id=cluster_id)
+        booths = cl_models.Booth.objects.all().filter(cluster=cluster_tbv)
+
+        # Check if submitted voter ID belongs to real voter
+        try:
+            voter = voter_models.Voters.objects.get(voter_id=voter_id)
+        except ObjectDoesNotExist:
+            return render(request, 'votes/cluster.html', {'cluster': cluster_tbv, 'booths': booths, 'error':'Invalid Voter ID'})
+
+        # Check if the voter has voted
+        if voter.has_voted:
+            return render(request, 'votes/cluster.html',
+                          {'cluster': cluster_tbv, 'booths': booths, 'error': 'Voter has already voted'})
+
+        # Check if voter has been assigned a booth already
+        for booth in booths:
+            if booth.assigned_voter is None:
+                pass
+            elif booth.assigned_voter.voter_id == voter_id:
+                return render(request, 'votes/cluster.html',
+                              {'cluster': cluster_tbv, 'booths': booths, 'error': 'Voter has already Been Assigned A Booth'})
+
+        booths = cl_models.Booth.objects.all().filter(cluster=cluster_tbv).order_by('id')
+        for booth in booths:
+            if booth.assigned_voter is None:
+                booth.assigned_voter = voter
+                booth.save()
+                break
+        cluster_o = cl_models.Cluster.objects.get(id=cluster_id)
+        booths = cl_models.Booth.objects.all().filter(cluster=cluster_o)
+        return render(request, 'votes/cluster.html', {'cluster': cluster_o, 'booths': booths})
+    else:
+        cluster_o = cl_models.Cluster.objects.get(id=cluster_id)
+        booths = cl_models.Booth.objects.all().filter(cluster=cluster_o)
+        return render(request, 'votes/cluster.html', {'cluster':cluster_o, 'booths':booths})
 
 
 def vote(request, booth_id='None'):
     if request.method == 'POST':
-        pass
+        booth = cl_models.Booth.objects.get(id=booth_id)
+        election = booth.cluster.election
+        voter = booth.assigned_voter
+        votertype = voter.type
+        votes = {}
+        posts = e_models.Posts.objects.all()
+        # making a dictionary with post as key and chosen candidate as the value
+        for post in posts:
+            pid = post.id
+            if request.POST[str(pid)] is not None:
+                votes[pid] = int(request.POST[str(pid)])
+        #print(votes)
+        for vote in votes:
+            postid = vote
+            candidateid = votes[vote]
+            post = e_models.Posts.objects.get(id=postid)
+            candidate = c_models.Candidate.objects.get(id=candidateid)
+            vote_tbr = vote_models.Vote.objects.create(
+                voter=voter,
+                candidate=candidate,
+                post=post,
+                booth=booth,
+                election=election,
+                votertype=votertype,
+            )
+            vote_tbr.save()
+            votevalue_id = voter.type.id
+            votevalue_type = e_models.VoterTypes.objects.get(id=votevalue_id)
+            votevalue = votertype.value
+            candidate.votes += int(votevalue)
+            candidate.save()
+        voter.has_voted = True
+        voter.save()
+        booth.assigned_voter = None
+        booth.save()
+        candidates = c_models.Candidate.objects.all().filter(election=election)
+        return render(request, 'votes/vote.html', {'booth': booth, 'candidates': candidates, 'posts': posts, 'notify':'Thank you for Voting!'})
     else:
         booth = cl_models.Booth.objects.get(id=booth_id)
-        cluster = booth.cluster
-        election = cluster.election
+        cluster_ic = booth.cluster
+        election = cluster_ic.election
         candidates = c_models.Candidate.objects.all().filter(election=election)
         posts = e_models.Posts.objects.all()
-
-        candidate_dict = {}
-        for post in posts:
-            if post not in candidate_dict:
-                candidate_dict[post] = []
-        for post in candidate_dict:
-            candidate_dict[post] = c_models.Candidate.objects.all().filter(post=post)
-
-        return render(request, 'votes/vote.html', {'booth': booth, 'candidates':candidates, 'posts':posts, 'candidate_dict': candidate_dict})
+        return render(request, 'votes/vote.html', {'booth': booth, 'candidates':candidates, 'posts':posts})
 

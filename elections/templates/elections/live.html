@@ -1,0 +1,41 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VIEW ALL ELECTIONS
+    </h1>
+    {%  if elections.count == 0 %}
+        <h1> PLEASE <a href="{% url 'create_election' %}"> ADD ELECTION </a></h1>
+    {%  else %}
+        {% if chosenelection is None %}
+            <form method="POST" id="election_chooser">
+                {% csrf_token %}
+                <select name="election">
+                    {% for election in elections.all %}
+                    <option value="{{ election.id }}">{{ election }}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit" action="{% url 'live_results' %}"> Select Election </button>
+            </form>
+        {% else %}
+            {% for post in posts %}
+                <h1> {{ post }}</h1>
+                {% for candidate in candidates %}
+                    {% if candidate.post == post %}
+                        <p> Candidate {{ candidate.name }} has {{ candidate.votes }} Votes </p>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    {%  endif  %}
+    </div>
+
+{% endblock %}

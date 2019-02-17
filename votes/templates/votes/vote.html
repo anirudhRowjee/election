@@ -1,14 +1,34 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block content %}
+    <meta http-equiv="refresh" content="60"/>
+    {%  if booth.assigned_voter is None %}
+        <script type="application/javascript">
+            document.body.style.backgroundColor = 'red';
+        </script>
+    {% else %}
+        <script type="application/javascript">
+            document.body.style.backgroundColor = 'green';
+        </script>
+    {% endif %}
+
+{% if notify %}
+    <script type="application/javascript">
+        var c = window.confirm({{ notify }})
+        if(c == true){
+            location.reload()
+        }
+    </script>
+{% endif %}
 
 
+{{ error }}
     <div class="text-center">
         <br>
         <p style="font-size:150px;"> Booth ID : {{ booth.id }}</p>
         <br>
         <p id='error'></p>
-        <p hidden id="voterid">sid</p>
+        <p hidden id="voterid">{{ booth.assigned_voter.voter_id }}</p>
         <button class="btn btn-primary" id='authtrigger' onclick="authvoter()"> Begin Voting</button>
     </div>
 
@@ -92,7 +112,7 @@
             }
             else{
                 document.getElementById('voterinterface').style.display = 'none';
-                document.getElementById('error').innerHTML = 'wrong';
+                document.getElementById('error').innerHTML = 'YOU HAVE NOT BEEN ASSIGNED THIS BOOTH';
             }
         }
 
@@ -101,9 +121,10 @@
 
 
 
-    <div id="voterinterface" class="voterinterface" style="display: none;">
-        <div class="">
+    <div id="voterinterface" class="voterinterface" style="display: none;  background-color: white;">
+        <div>
         <form action="{% url 'vote' booth_id=booth.id %}" method="POST">
+            <input hidden name="voterid" value="{{ booth.assigned_voter.voter_id }}">
             <div class="container voting_grid">
                 {% csrf_token %}
                 {% for post in posts %}
