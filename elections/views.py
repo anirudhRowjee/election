@@ -175,7 +175,7 @@ def live_results(request):
     if request.method == 'POST':
         election_id = request.POST['election']
         election = e_models.Election.objects.get(id=election_id)
-        candidates = c_models.Candidate.objects.all().filter(election=election)
+        candidates = c_models.Candidate.objects.all().filter(election=election).order_by('-votes')
         posts = e_models.Posts.objects.all()
         return render(request, 'elections/live.html', {'chosenelection': election, 'candidates':candidates, 'posts':posts})
     else:

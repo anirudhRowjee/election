@@ -9,6 +9,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils.datastructures import MultiValueDictKeyError
 
 
 def home(request):
@@ -31,6 +32,7 @@ def home(request):
     else:
         return render(request, 'votes/home.html')
 
+
 @login_required()
 def logout(request):
     if request.method == 'POST':
@@ -41,7 +43,7 @@ def logout(request):
 @login_required()
 def cluster(request, cluster_id='None'):
     if request.method == 'POST':
-        voter_id = request.POST['voter_id']
+        voter_id = request.POST['voter_id'].lstrip().rstrip()
         cluster_id = request.POST['cluster']
         cluster_tbv = cl_models.Cluster.objects.get(id=cluster_id)
         booths = cl_models.Booth.objects.all().filter(cluster=cluster_tbv)
@@ -88,12 +90,21 @@ def vote(request, booth_id='None'):
         votertype = voter.type
         votes = {}
         posts = e_models.Posts.objects.all()
+
         # making a dictionary with post as key and chosen candidate as the value
         for post in posts:
+            # iterate through posts
             pid = post.id
-            if request.POST[str(pid)] is not None:
-                votes[pid] = int(request.POST[str(pid)])
-        #print(votes)
+            # get post ID
+            try:
+                post_id = request.POST[str(pid)]
+                votes[pid] = int(post_id)
+            except MultiValueDictKeyError:
+                pass
+                # check if post ID is part of POST data
+
+                # if yes, add to dictionary
+        print(votes)
         for vote in votes:
             postid = vote
             candidateid = votes[vote]
