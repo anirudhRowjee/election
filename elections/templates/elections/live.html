@@ -5,6 +5,11 @@
 {{ error }}
 <br>
 {%endif%}
+    <style>
+     .results_chart{
+     }
+
+    </style>
     <div class="container text-center">
         <h1> {{  message }}</h1>
     <h1 class="text-center">
@@ -20,22 +25,48 @@
                 {% csrf_token %}
                 <select name="election">
                     {% for election in elections.all %}
-                    <option value="{{ election.id }}">{{ election }}</option>
+                        <option value="{{ election.id }}">{{ election }}</option>
                     {% endfor %}
                 </select>
                 <button type="submit" action="{% url 'live_results' %}"> Select Election </button>
             </form>
         {% else %}
-            {% for post in posts %}
-                <h1> {{ post }}</h1>
-                {% for candidate in candidates %}
-                    {% if candidate.post == post %}
-                        <p> Candidate {{ candidate.name }} has {{ candidate.votes }} Votes </p>
-                    {% endif %}
+
+            <div class="container-fluid" align="center">
+                <!-- generate divs for charts by post -->
+                {% for post in posts %}
+                    <div id="{{ post.id }}" class="results_chart m-3"></div>
+                    <hr>
                 {% endfor %}
-            {% endfor %}
+            </div>
         {% endif %}
     {%  endif  %}
     </div>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    {% for post in posts %}
+        <script type="text/javascript">
+        // Load google charts
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
 
+        // Draw the chart and set the chart values
+        function drawChart() {
+          var data = google.visualization.arrayToDataTable([
+          ['Name', 'Vote Share'],
+              {% for candidate in candidates %}
+                  {% if candidate.post == post %}
+                    ['{{ candidate.name }}', {{ candidate.votes }}],
+                  {% endif %}
+              {% endfor %}
+        ]);
+
+          // Optional; add a title and set the width and height of the chart
+          var options = {'title':'{{ post }}', 'titleTextStyle': {'fontSize': 30}, 'width': 'auto', 'height' : 400,'pieHole':0.9, 'is3D':true};
+
+          // Display the chart inside the <div> element with id="as post id"
+          var chart = new google.visualization.PieChart(document.getElementById('{{ post.id }}'));
+          chart.draw(data, options);
+        }
+        </script>
+    {% endfor %}
 {% endblock %}

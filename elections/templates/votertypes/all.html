@@ -17,11 +17,13 @@
 
     {%  else %}
         <div style="overflow:auto; position:relative;" class="text-center">
-            <table>
-            <tr>
-                <th> VOTER TYPE </th>
-                <th> VOTE VALUE </th>
-            </tr>
+            <table class="table table-fixed">
+            <thead class="thead-dark">
+                <tr>
+                    <th> VOTER TYPE </th>
+                    <th> VOTE VALUE </th>
+                </tr>
+            </thead>
             <tbody>
                 {%  for votertype in votertypes.all %}
                 <tr>

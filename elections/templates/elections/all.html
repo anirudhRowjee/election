@@ -17,26 +17,30 @@
 
     {%  else %}
         <div style="overflow:auto; position:relative;" class="text-center">
-            <table>
-            <tr>
-                <th> ELECTION TYPE </th>
-                <th> ELECTION YEAR </th>
-                <th> ELECTION NUMBER </th>
-                <th> ELECTION STATUS </th>
-                <th> CREATED </th>
-            </tr>
-            <tbody>
-                {%  for election in elections.all %}
-                <tr class="text-center">
-                    <td> {{ election.type }}</td>
-                    <td> {{ election.year }}</td>
-                    <td> {{ election.election_number }}</td>
-                    <td> {{ election.is_active }}</td>
-                    <td> {{ election.created_timestamp }}</td>
+            <table class="table table-fixed">
+                <thead class="thead-dark">
+                    <tr>
+                        <th> ELECTION TYPE</th>
+                        <th> ELECTION YEAR</th>
+                        <th> ELECTION NUMBER</th>
+                        <th> ELECTION STATUS</th>
+                        <th> CREATED</th>
+                    </tr>
 
-                </tr>
-                {% endfor %}
-            </tbody>
+                </thead>
+
+                <tbody>
+                    {%  for election in elections.all %}
+                    <tr class="text-center">
+                        <td> {{ election.type }}</td>
+                        <td> {{ election.year }}</td>
+                        <td> {{ election.election_number }}</td>
+                        <td> {{ election.is_active }}</td>
+                        <td> {{ election.created_timestamp }}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
         </table>
         </div>
     {%  endif  %}

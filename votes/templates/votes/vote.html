@@ -25,7 +25,7 @@
 {{ error }}
     <div class="text-center">
         <br>
-        <p style="font-size:150px;"> Booth ID : {{ booth.id }}</p>
+        <p style="font-size:150px; color:white;"> Booth ID : {{ booth.id }}</p>
         <br>
         <p id='error'></p>
         <p hidden id="voterid">{{ booth.assigned_voter.voter_id }}</p>
@@ -34,7 +34,7 @@
 
     <style>
         .logo {
-            width: 50px;
+            width: 120px;
             height:auto;
         }
 
@@ -42,7 +42,7 @@
         .candidate_namelbl {
             background-color: transparent;
             border: 1px grey;
-            font-size: 20px;
+            font-size: 40px;
         }
         .candidate_statuslbl {
             font-size: 15px;
@@ -67,7 +67,7 @@
         .p_candidate_input {
             margin: 10px;
             padding: 20px;
-            height: 100px;
+            height: 200px;
             transition: 0.4s ease;
         }
 
@@ -87,16 +87,15 @@
         }
 
         .post_box {
-            margin-top: 20px;
-            margin-bottom: 20px;
-            margin-right: 20px;
-            padding: 20px;
             border: 1px solid grey;
+            margin-top: 40px;
         }
 
         .voting_grid {
             display: grid;
-            flex-direction: row;
+            grid-template-rows: auto auto;
+            grid-template-columns: auto auto;
+            column-gap: 20px;
         }
     </style>
 
@@ -122,9 +121,6 @@
         }
     </script>
 
-
-
-
     <div id="voterinterface" class="voterinterface" style="display: none;  background-color: white;">
         <div>
         <form action="{% url 'vote' booth_id=booth.id %}" method="POST">
@@ -133,7 +129,7 @@
                 {% csrf_token %}
                 {% for post in posts %}
                     <! for each post>
-                    <div class="col-md-6 post_box">
+                    <div class="col-lg post_box">
                         <h2 class="text-center">{{ post }}</h2>
                         <! for each of the posts each candidate gets a box>
                         <div>
@@ -152,7 +148,7 @@
                                                 <div class="p_candidate_input">
                                                     <div class="row">
                                                         <div class="col">
-                                                            <img src="{{ candidate.logo.url }}" class="img-fluid logo" height="100px" width="200px"> <br><br>
+                                                            <img src="{{ candidate.logo.url }}" class="img-fluid logo" height="60px" width="200px"> <br><br>
                                                         </div>
                                                         <div class="col">
                                                             <label class="candidate_namelbl">{{ candidate.name }}</label>

@@ -3,10 +3,13 @@ from django.contrib.auth.decorators import login_required
 from elections import models as e_models
 from .forms import *
 from django.contrib import auth
-from django.db import IntegrityError
+from django.http import HttpResponse
+from django.views.generic import View
+from election.utils import render_to_pdf
+
 # Create your views here.
 from candidates import models as c_models
-
+from voters import models as v_models
 
 @login_required()
 def home(request):
@@ -56,10 +59,6 @@ def activate_elections(request):
     else:
         elections = e_models.Election.objects.filter(is_active=False)
         return render(request, 'elections/activate.html', {'elections': elections})
-
-
-def declare_elections(request):
-    pass
 
 
 def reset_elections(request):
@@ -171,13 +170,69 @@ def all_votertype(request):
     return render(request, 'votertypes/all.html', {'votertypes':votertypes})
 
 
+class GeneratePdf(View):
+    def get(self, request, data, *args, **kwargs):
+        pdf = render_to_pdf('pdf/results.html', data)
+        return HttpResponse(pdf, content_type='application/pdf')
+
+
 def live_results(request):
     if request.method == 'POST':
         election_id = request.POST['election']
         election = e_models.Election.objects.get(id=election_id)
         candidates = c_models.Candidate.objects.all().filter(election=election).order_by('-votes')
         posts = e_models.Posts.objects.all()
-        return render(request, 'elections/live.html', {'chosenelection': election, 'candidates':candidates, 'posts':posts})
+        return render(request, 'elections/live.html', {'chosenelection': election, 'candidates':candidates, 'posts':posts,})
     else:
         elections = e_models.Election.objects
         return render(request, 'elections/live.html', {'elections':elections, 'chosenelection':None})
+
+
+def declare_elections(request):
+    if request.method == 'POST':
+        uname = request.POST['superuser_username']
+        p1 = request.POST['superuser_password_1']
+        p2 = request.POST['superuser_password_2']
+        election_id = request.POST['election_id']
+        election = e_models.Election.objects.get(id=election_id)
+        candidates = c_models.Candidate.objects.all().order_by('-votes')
+        if p1 == p2:
+            if auth.authenticate(request, username=uname, password=p1) is not None:
+                # all auth passed
+                # generate winners list
+                winners = []
+                # find candidate with highest votes for every post
+                for post in e_models.Posts.objects.all():
+                    post_clist = []
+                    for candidate in candidates.filter(post=post).order_by('-votes').values('id'):
+                        #print(candidate['id'])
+                        post_clist.append(candidate['id'])
+                    if len(post_clist) == 0:
+                        pass
+                    else:
+                        #print('post_clist', post_clist)
+                        winner_id = post_clist[0]
+                        winner = c_models.Candidate.objects.get(id=winner_id)
+                        winners.append(winner)
+                # add pdf file of results
+                posts = e_models.Posts.objects.all()
+                voter_turnout = v_models.Voters.objects.all().filter(has_voted=True).count()
+                voter_total = v_models.Voters.objects.all().count()
+                posts_contested = e_models.Posts.objects.all().count()
+                election = e_models.Election.objects.get(id=election_id)
+                data = {'error': 'declared', 'election': election, 'winners': winners,
+                                                            'posts': posts, 'candidates':candidates,
+                                                            'voter_turnout': voter_turnout, 'voter_total': voter_total,
+                                                            'posts_contested': posts_contested}
+                return GeneratePdf.get(self=GeneratePdf(), request=request, data=data)
+            else:
+                elections = e_models.Election.objects
+                return render(request, 'elections/declare.html',
+                              {'error': 'WRONG USERNAME/PASSWORD', 'elections': elections})
+        else:
+            elections = e_models.Election.objects
+            return render(request, 'elections/declare.html',
+                          {'error': 'PASSWORDS DO NOT MATCH', 'elections': elections})
+    else:
+        elections = e_models.Election.objects
+        return render(request, 'elections/declare.html', {'elections':elections})

@@ -17,11 +17,14 @@
 
     {%  else %}
         <div style="overflow:auto; position:relative;" class="text-center">
-            <table>
-            <tr>
-                <th> POST NAME </th>
-                <th> DESCRIPTION </th>
-            </tr>
+            <table class="table table-fixed">
+            <thead class="thead-dark">
+                <tr>
+                    <th> POST NAME </th>
+                    <th> DESCRIPTION </th>
+                </tr>
+            </thead>
+
             <tbody>
                 {%  for post in posts.all %}
                 <tr>

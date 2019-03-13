@@ -135,6 +135,10 @@ def vote(request, booth_id='None'):
         cluster_ic = booth.cluster
         election = cluster_ic.election
         candidates = c_models.Candidate.objects.all().filter(election=election)
-        posts = e_models.Posts.objects.all()
+        posts = []
+        for candidate in candidates:
+            if candidate.post not in posts:
+                posts.append(candidate.post)
+        #posts = e_models.Posts.objects.all()
         return render(request, 'votes/vote.html', {'booth': booth, 'candidates':candidates, 'posts':posts})
 
