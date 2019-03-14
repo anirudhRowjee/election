@@ -3,17 +3,49 @@
 {% if error %}
 <br>
 {{ error }}
-    {{ form.errors }}
-    {{ form.non_field_errors }}
 <br>
 {%endif%}
-    <div class="container text-center">
-    <form method="POST" action="/admin/elections/election_ops/create/" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form }}
-        <input class='btn btn-primary' type="submit" value="Add Election">
-    </form>
-</div>
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
+        <li class="nav-item"><a href="{%  url 'home_election'%}" class="nav-link "> BACK </a></li>
+        <li class="nav-item"><a href="{%  url 'create_election'%}" class="nav-link active"> ADD ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'activate_election'%}" class="nav-link"> ACTIVATE ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'reset_election'%}" class="nav-link"> RESET ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'declare_election'%}" class="nav-link"> DECLARE RESULTS OF ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'all_election'%}" class="nav-link"> VIEW ALL ELECTIONS </a></li>
+        <li class="nav-item"><a href="{% url 'live_results' %}" class="nav-link"> LIVE RESULTS </a></li>
+    </ul>
+    <br>
+    <br>
+
+    <div class="container text-center" >
+        <h1 class="text-center">
+            FIS-EES ADMIN INTERFACE
+            <br>
+            CREATE ELECTIONS
+        </h1>
+    <br>
+        <form method="POST" action="{% url 'create_election' %}" enctype="multipart/form-data" style="">
+                {% csrf_token %}
+            <div class="form-group" style="margin-left:27%;" >
+                {% for field in form %}
+                    <div class="form-row w-100 ml-50">
+                        <p class="px-3 text-left" style="width: 200px;">{{ field.label_tag }}</p>
+                        <p>{{ field }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if error %}
+                <br>
+                {{ error }}
+                <br>
+                <p>STATUS : {{ form.errors }} {{ form.non_field_errors }}</p>
+            {%endif%}
+
+            <br>
+            <input class='btn btn-primary' type="submit" value="Add Election">
+        </form>
+        <br>
+    </div>
 
 
 {% endblock %}

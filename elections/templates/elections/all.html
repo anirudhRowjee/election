@@ -5,6 +5,17 @@
 {{ error }}
 <br>
 {%endif%}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
+        <li class="nav-item"><a href="{%  url 'home_election'%}" class="nav-link "> BACK </a></li>
+        <li class="nav-item"><a href="{%  url 'create_election'%}" class="nav-link "> ADD ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'activate_election'%}" class="nav-link"> ACTIVATE ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'reset_election'%}" class="nav-link "> RESET ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'declare_election'%}" class="nav-link "> DECLARE RESULTS OF ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'all_election'%}" class="nav-link active"> VIEW ALL ELECTIONS </a></li>
+        <li class="nav-item"><a href="{% url 'live_results' %}" class="nav-link "> LIVE RESULTS </a></li>
+    </ul>
+    <br>
+    <br>
     <div class="container text-center">
         <h1> {{  message }}</h1>
     <h1 class="text-center">

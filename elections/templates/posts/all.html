@@ -1,10 +1,14 @@
 {% extends 'admin-base.html' %}
 {% block content %}
-{% if error %}
-<br>
-{{ error }}
-<br>
-{%endif%}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
+        <li class="nav-item"><a href="{% url 'home_post' %}" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'create_post' %}" class="nav-link"> ADD POST </a></li>
+        <li class="nav-item"><a href="{% url 'remove_post' %}" class="nav-link"> DELETE POST </a></li>
+        <li class="nav-item"><a href="{% url 'all_post' %}" class="nav-link active"> VIEW ALL POSTS </a></li>
+    </ul>
+    <br>
+    <br>
+
     <div class="container text-center">
         <h1> {{  message }}</h1>
     <h1 class="text-center">
@@ -37,6 +41,11 @@
         </table>
         </div>
     {%  endif  %}
+    {% if error %}
+        <br>
+        <p>Status : {{ error }}</p>
+        <br>
+    {%endif%}
     </div>
 
 {% endblock %}

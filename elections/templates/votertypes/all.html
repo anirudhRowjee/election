@@ -1,41 +1,53 @@
 {% extends 'admin-base.html' %}
 {% block content %}
-{% if error %}
-<br>
-{{ error }}
-<br>
-{%endif%}
+
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
+        <li class="nav-item"><a href="{% url 'home_votertype' %}" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'create_votertype' %}" class="nav-link "> ADD VOTERTYPE </a></li>
+        <li class="nav-item"><a href="{% url 'remove_votertype' %}" class="nav-link"> DELETE VOTERTYPE </a></li>
+        <li class="nav-item"><a href="{% url 'all_votertypes' %}" class="nav-link active"> VIEW ALL VOTERTYPES </a></li>
+    </ul>
+    <br>
+    <br>
+
     <div class="container text-center">
         <h1> {{  message }}</h1>
-    <h1 class="text-center">
-        FIS-EES ADMIN INTERFACE
-        <br>
-        VIEW ALL VOTERTYPES
-    </h1>
-    {%  if votertypes.count == 0 %}
-        <h1> PLEASE <a href="{% url 'create_votertype' %}"> ADD VOTERTYPES </a></h1>
+        <h1 class="text-center">
+            FIS-EES ADMIN INTERFACE
+            <br>
+            VIEW ALL VOTERTYPES
+        </h1>
+    <br>
+        {%  if votertypes.count == 0 %}
+            <h1> PLEASE <a href="{% url 'create_votertype' %}"> ADD VOTERTYPES </a></h1>
 
-    {%  else %}
-        <div style="overflow:auto; position:relative;" class="text-center">
-            <table class="table table-fixed">
-            <thead class="thead-dark">
-                <tr>
-                    <th> VOTER TYPE </th>
-                    <th> VOTE VALUE </th>
-                </tr>
-            </thead>
-            <tbody>
-                {%  for votertype in votertypes.all %}
-                <tr>
-                    <td> {{ votertype.name }}</td>
-                    <td> {{ votertype.value }}</td>
+        {%  else %}
+            <div style="overflow:auto; position:relative;" class="text-center">
+                <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th> VOTER TYPE </th>
+                        <th> VOTE VALUE </th>
+                    </tr>
+                </thead>
 
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        </div>
-    {%  endif  %}
+                <tbody>
+                    {%  for votertype in votertypes.all %}
+                    <tr>
+                        <td> {{ votertype.name }}</td>
+                        <td> {{ votertype.value }}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        {%  endif  %}
+        {% if error %}
+            <br>
+            <p>Status : {{ error }}</p>
+            <br>
+        {%endif%}
     </div>
 
 {% endblock %}
