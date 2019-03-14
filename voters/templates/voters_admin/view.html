@@ -5,7 +5,15 @@
 {{ error }}
 <br>
 {%endif%}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top: 5px;">
+        <li class="nav-item" ><a href="#" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'view' %}" class="nav-link active disabled"> VIEW ALL VOTERS </a></li>
+        <li class="nav-item"><a href="{% url 'populate' %}" class="nav-link"> POPULATE VOTER DATABASE </a></li>
+        <li class="nav-item"><a href="{% url 'delete_v' %}" class="nav-link"> DELETE ALL VOTERS </a></li>
+    </ul>
 
+    <br>
+    <br>
     <div class="container text-center">
         <h1> {{  message }}</h1>
     <h1 class="text-center">
