@@ -1,0 +1,64 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top: 5px;">
+        <li class="nav-item" ><a href="#" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'view' %}" class="nav-link "> VIEW ALL VOTERS </a></li>
+        <li class="nav-item"><a href="{% url 'populate' %}" class="nav-link"> POPULATE VOTER DATABASE </a></li>
+        <li class="nav-item"><a href="{% url 'delete_v' %}" class="nav-link active"> DELETE ALL VOTERS </a></li>
+    </ul>
+
+    <br>
+    <br>
+
+    <div class="container-fluid text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VOTER DELETION
+    </h1>
+        {%  if voters.count == 0 %}
+            <form action="{%  url 'populate' %}" id="redirect_to_populate"></form>
+            <script type="application/javascript">
+                 alert("Database is not populated");
+                 document.getElementById('redirect_to_populate').submit()
+            </script>
+        {%  endif %}
+        <div class="m-5">
+            <form method="POST" action="{% url 'delete' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <br>
+                <div class="form-group">
+                    <label style="border:2px solid red;"> Are you SURE you want to delete this candidate? THIS ACTION CAN NOT BE UNDONE </label>
+                    <br>
+                    <br>
+                    <label for="superuser_username" style="float: left;"> To Proceed, Please Enter the SuperUser username.</label>
+                    <input type="text" id="superuser_username" name="superuser_username" class="form-control">
+                    <br>
+                    <label for="superuser_password_1" style="float: left;"> Please Enter the SuperUser password.</label>
+                    <input type="password" id="superuser_password_1" name="superuser_password_1" class="form-control">
+                    <br>
+                    <label for="superuser_password_2" style="float: left;"> Please Enter the SuperUser password again.</label>
+                    <input type="password" id="superuser_password_2" name="superuser_password_2" class="form-control">
+                    <br>
+                    <br>
+                </div>
+
+                {% if error %}
+                            <br>
+                                <p> Status : {{ error }}</p>
+                            <br>
+                {%endif%}
+                <input class='btn btn-primary' type="submit" value="DELETE VOTERS">
+            </form>
+        </div>
+
+
+    </div>
+
+{% endblock %}

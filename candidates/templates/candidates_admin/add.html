@@ -1,0 +1,91 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
+        <li class="nav-item"><a href="{% url 'home_candidates' %}" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'view_all' %}" class="nav-link "> VIEW ALL CANDIDATES</a></li>
+        <li class="nav-item"><a href="{% url 'add' %}" class="nav-link active"> ADD CANDIDATES </a></li>
+        <li class="nav-item"><a href="{% url 'delete' %}" class="nav-link "> DELETE CANDIDATES </a></li>
+    </ul>
+    <br>
+    <br>
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+{% if elections.count == 0 %}
+    <label> zero elections
+     <form action="{%  url 'mainmenu' %}" id = 'redirect_to_add_elections'>
+            </form>
+            <script type="application/javascript">
+                alert("You must have an active election to add candidates.");
+                document.getElementById('redirect_to_add_elections').submit()
+            </script>
+{%  else %}
+    <div class="container">
+        <h1 class="text-center">
+            FIS-EES ADMIN INTERFACE
+            <br>
+            ADD CANDIDATES
+        </h1>
+        <div class="m-5" style="" align="center">
+            <form method="POST" action="{% url 'add' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <br>
+                    <label for="voter_id" style="float: left;">Candidate's voter ID :</label>
+                        <select class="form-control" name="voter_id" id="voter_id">
+                            {%  for voter in voters %}
+                                <option value="{{ voter.voter_id }}"> {{ voter.name }} {{ voter.voter_class }} ({{ voter.voter_id }}) </option>
+                            {% endfor %}
+                        </select>
+                    
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="post" style="float: left;">For the Post Of:</label>
+                        <select class="form-control" name="post" id="post">
+                            {%  for post in posts %}
+                                <option value="{{ post.id }}"> {{ post.name }} </option>
+                            {% endfor %}
+                        </select>
+                    
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="election" style="float: left;">In election :</label>
+                        <select class="form-control" name="election" id="election">
+                            {%  for election in elections %}
+                                <option value="{{ election.id }}"> {{election.type}}  {{election.year}} </option>
+                            {% endfor %}
+                        </select>
+                    
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="image" style="float: left;">Image :</label>
+                        <input class="form-control-file" type="file" id="image" name="image">
+                    
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="logo" style="float: left;">Logo :</label>
+                        <input class="form-control-file"type="file" id="logo" name="logo">
+                    
+                    <br>
+                </div>
+                <div class="form-group">
+                    <label for="slogan" style="float: left;">Slogan :</label>
+                        <input class="form-control"  id="slogan" type="text" name="slogan">
+                    
+                    <br>
+                    <br>
+                    <input class='btn btn-primary' type="submit" value="Submit Candidates">
+                </div>
+            </form>
+        </div>
+
+    </div>
+{% endif %}
+
+{% endblock %}

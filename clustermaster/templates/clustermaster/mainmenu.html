@@ -1,0 +1,134 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+    <head>
+        <style>
+            #myModal {
+                height: 100%;
+            }
+            .modal-content {
+                height: content-box;
+            }
+            .cluster_container{
+                border: 1px solid lightgrey;
+                box-shadow: 0 2px 2px 0 lightgrey;
+                transition-duration: 0.2s;
+                transition-timing-function: ease-in-out;
+            }
+
+            .cluster_container:hover{
+                box-shadow: 0 4px 6px 0 lightgrey;
+            }
+
+        </style>
+    </head>
+{% if error %}
+<br>
+{{ error }}
+<br>
+
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        CLUSTER MASTER CONTROL
+    </h1>
+    <br>
+    <br>
+    {%  if user.is_authenticated %}
+        <div class="container" style="white-space:normal ;">
+        <form id="election_chooser">
+
+        </form>
+            <button class="btn btn-info w-100" style=""  data-toggle="modal" data-target="#myModal"> Add Cluster </button>
+        <br>
+        <br>
+        {% for election in elections.all %}
+            <h2 class="text-info"> Election : {{ election.pretty_name }}</h2>
+                {% for cluster in clusters.all %}
+                    {% if cluster.election == election %}
+                            <div class="cluster_container row m-2 p-3"  id='cluster_info_container' style="">
+                                <div class="col-3">
+                                    <div class="row">
+                                        <h1>{{ cluster }}</h1>
+                                    </div>
+                                    <div class="row">
+                                        <h2>{{ cluster.location }}</h2>
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <div class="row">
+                                        <h3> Username : {{ cluster.username }}</h3>
+                                    </div>
+                                    <div class="row">
+                                        <h3>Password : {{ cluster.password }}</h3>
+                                    </div>
+                                    <div class="row">
+                                        <h3> Active Booths : {{ cluster.capacity }}</h3>
+                                </div>
+                            </div>
+                        <div class="col-2 p-3" style="align-items: center;">
+                            <div class="row">
+                                {% if cluster.status == False %}
+                                    <a href="{% url 'delete_cluster' cluster.id %}"  class="btn btn-primary w-100"> Delete Cluster </a>
+                                {% endif %}
+                            </div>
+                        <p></p>
+                            <div class="row">
+                                {% if cluster.status == True %}
+                                    <a href="{% url 'togglecluster' cluster_id=cluster.id  status=0 %}"  class="btn btn-danger w-100"> Deactivate Cluster </a>
+                                {% else %}
+                                    <a href="{% url 'togglecluster' cluster_id=cluster.id  status=1 %}"  class="btn btn-success w-100"> Activate Cluster </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        </div>
+                    {% endif %}
+                    <br>
+            {% endfor %}
+            <hr>
+        {% endfor %}
+
+
+        </div>
+
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="height:auto; overflow:">
+              <div class="modal-header">
+                    <h4 class="modal-title"> Add Cluster </h4>
+              </div>
+              <div class="modal-body">
+                    <iframe src="{% url 'add_cluster' %}" height='60%' frameborder="False"></iframe>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="history.go(0)">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="AuthModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content" style="height:auto; overflow:">
+              <div class="modal-header">
+                    <h4 class="modal-title"> Authenticate Yourself </h4>
+              </div>
+              <div class="modal-body">
+                    <iframe src="{% url 'add_cluster' %}" height='60%' frameborder="False"></iframe>
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-info" data-dismiss="modal" onclick="history.go(0)">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    {% endif %}
+    </div>
+
+{% endblock %}

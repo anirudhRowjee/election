@@ -1,0 +1,66 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top: 5px;">
+        <li class="nav-item" ><a href="#" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'view' %}" class="nav-link "> VIEW ALL VOTERS </a></li>
+        <li class="nav-item"><a href="{% url 'populate' %}" class="nav-link active"> POPULATE VOTER DATABASE </a></li>
+        <li class="nav-item"><a href="{% url 'delete_v' %}" class="nav-link"> DELETE ALL VOTERS </a></li>
+    </ul>
+
+    <br>
+    <br>
+
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        POPULATE VOTER DATABASE
+    </h1>
+    <div class="container-fluid">
+        <h1> {{  message }}</h1>
+        <div class="m-5">
+            <form method="POST" action="{% url 'populate' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <br>
+                <div class="text-center">
+                    <label>Please submit a CSV file with the following fields (in order) for every voter- </label>
+                    <label>Voter ID , Name, Class </label>
+                    <label style="border:2px red solid; padding:3px;">
+                        *NOTE : for any group, if a class does not exist, then the name of the group will serve as the class.
+                        THIS FIELD CAN NOT BE LEFT NULL.
+                    </label>
+                </div>
+
+                <fieldset class="form-group">
+                    <legend>Voter Types :</legend>
+                    {%  for VoterTypes in votertypes.all %}
+                        <div class="form-check">
+                            <label class="form-check-label" for="{{ VoterTypes.id }}">
+                            <input  style="float:left;" class="form-check-input" type="radio" name="type" id="{{ VoterTypes.id }}"value="{{ VoterTypes.id  }}" required="required">
+                            {{ VoterTypes.name }}
+                            </label>
+                        </div>
+                    {%  endfor %}
+
+                </fieldset>
+                <div class="form-group">
+                    <label> Please attach the necessary CSV file - ></label>
+                    <input type="file" name="csv_source" class="form-control-file">
+                    <br>
+                    <br>
+                </div>
+                <div class="text-center">
+                    <input class='btn btn-primary' type="submit" value="Populate Database">
+                </div>
+
+            </form>
+        </div>
+
+        <br>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
+        <li class="nav-item"><a href="{%  url 'home_election'%}" class="nav-link "> BACK </a></li>
+        <li class="nav-item"><a href="{%  url 'create_election'%}" class="nav-link "> ADD ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'activate_election'%}" class="nav-link"> ACTIVATE ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'reset_election'%}" class="nav-link "> RESET ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'declare_election'%}" class="nav-link "> DECLARE RESULTS OF ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'all_election'%}" class="nav-link active"> VIEW ALL ELECTIONS </a></li>
+        <li class="nav-item"><a href="{% url 'live_results' %}" class="nav-link "> LIVE RESULTS </a></li>
+    </ul>
+    <br>
+    <br>
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VIEW ALL ELECTIONS
+    </h1>
+    {%  if elections.count == 0 %}
+        <h1> PLEASE <a href="{% url 'create_election' %}"> ADD ELECTION </a></h1>
+
+    {%  else %}
+        <div style="overflow:auto; position:relative;" class="text-center">
+            <table class="table table-fixed">
+                <thead class="thead-dark">
+                    <tr>
+                        <th> ELECTION TYPE</th>
+                        <th> ELECTION YEAR</th>
+                        <th> ELECTION NUMBER</th>
+                        <th> ELECTION STATUS</th>
+                        <th> CREATED</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    {%  for election in elections.all %}
+                    <tr class="text-center">
+                        <td> {{ election.type }}</td>
+                        <td> {{ election.year }}</td>
+                        <td> {{ election.election_number }}</td>
+                        <td> {{ election.is_active }}</td>
+                        <td> {{ election.created_timestamp }}</td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+        </div>
+    {%  endif  %}
+    </div>
+
+{% endblock %}

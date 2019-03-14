@@ -1,0 +1,58 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top: 5px;">
+        <li class="nav-item" ><a href="#" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'view' %}" class="nav-link active disabled"> VIEW ALL VOTERS </a></li>
+        <li class="nav-item"><a href="{% url 'populate' %}" class="nav-link"> POPULATE VOTER DATABASE </a></li>
+        <li class="nav-item"><a href="{% url 'delete_v' %}" class="nav-link"> DELETE ALL VOTERS </a></li>
+    </ul>
+
+    <br>
+    <br>
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VOTER INFORMATION
+    </h1>
+    {%  if voters.count == 0 %}
+            <form action="{%  url 'populate' %}" id = 'redirect_to_populate'>
+            </form>
+            <script type="application/javascript">
+                alert("Database is not populated");
+                document.getElementById('redirect_to_populate').submit()
+            </script>
+    {%  else %}
+        <div style="overflow-y:auto; max-height: 400px;" class="text-center" >
+            <table class="table table-fixed" style="border: 2px solid black; ">
+            <thead class="thead-dark">
+                <tr>
+                    <th> VOTER ID </th>
+                    <th> VOTER NAME </th>
+                    <th> CLASS </th>
+                    <th> HAS VOTED</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {%  for voter in voters.all %}
+                <tr>
+                    <td> {{ voter.voter_id }}</td>
+                    <td> {{ voter.name }}</td>
+                    <td> {{ voter.voter_class }}</td>
+                    <td> {{ voter.has_voted }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {%  endif  %}
+    </div>
+
+{% endblock %}

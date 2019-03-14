@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+{% load staticfiles %}
+<html lang="en">
+    <head>
+        <link href="{% static 'assets/logo.jpg' %}" type="image/jpg">
+        <title>Results of {{ election.pretty_name }}</title>
+        <style type="text/css">
+            body {
+                text-align: center;
+                font-weight: 200;
+                font-size: 14px;
+                font-family: 'Roboto Condensed', sans-serif;
+            }
+
+            tr{
+                background-color: white;
+                border: 2px solid black;
+            }
+
+            td{
+                padding: 3px;
+            }
+            th{
+                padding: 3px;
+                background-color: #3875d7;
+            }
+
+            .post_header{
+                padding: 3px;
+            }
+            .winner{
+                background-color: lawngreen;
+                padding: 3px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="img_container">
+            <img src="{% static 'assets/logo.jpg' %}" class="d-inline-block align-top" height="50" width="50"
+                     style="float:left;">
+            <h1> RESULTS OF {{ election.pretty_name }}</h1>
+            <h4> DECLARED AT {% now "jS F Y H:i" %}</h4>
+        </div>
+        <hr>
+        <div id="election_results">
+            <h2> Election name : {{ election.pretty_name }}</h2>
+            <h2> Voter Turnout : {{ voter_turnout }} / {{ voter_total }}</h2>
+            <h2> Posts Contested : {{ posts_contested }}</h2>
+        </div>
+        <hr>
+        <div id="posts">
+            {% for post in posts %}
+                <h1 class="post_header"> {{ post.name }}</h1>
+                {% for winner in winners %}
+                    {%  if winner.post == post %}
+                        <h2 class="winner"> Winner : {{ winner.name }} with {{ winner.votes }} Votes</h2>
+                    {% endif %}
+                 {% endfor %}
+                <table>
+                    <tr>
+                        <th> Candidate Name </th>
+                        <th> Votes </th>
+                    </tr>
+                    {% for candidate in candidates %}
+                    {% if candidate.post == post %}
+                        <tr><td>{{ candidate.name }}</td> <td>{{ candidate.votes }}</td></tr>
+                    {% endif %}
+                {% endfor %}
+                </table>
+                <br>
+            {% endfor %}
+        </div>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{%  if user.is_authenticated %}
+   <form action="{% url 'home' %}" id="redirect_to_home">
+            </form>
+            <script type="application/javascript">
+                 document.getElementById('redirect_to_home').submit()
+            </script>
+{% endif %}
+    <div class="container text-center">
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div align="center">
+                <br>
+                <input class="form-control" style="width:30%;" type="text" name="username" placeholder="username">
+                <br>
+                <input class="form-control" style="width:30%;" type="password" name="password" placeholder="password">
+                <br>
+                <br>
+                <p>Status : {{ error }}</p>
+                <br>
+
+            </div>
+            <input class='btn btn-primary' type="submit" value="Login" style="width: 20%;">
+            <a href="/" class="btn btn-primary" style="width: 20%;"> Home </a>
+        </form>
+
+    </div>
+
+
+{% endblock %}

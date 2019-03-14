@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{%  block content %}
+    <div class="text-center">
+        <h1> Cluster Control Interface </h1>
+        <h2> Cluster ID : {{ cluster.id }}</h2>
+        <h2> Election : {{ cluster.election }}</h2>
+        <h2> Location : {{ cluster.location }}</h2>
+        {% if error %}
+            <script type="application/javascript">
+                alert('Error : {{ error }}')
+            </script>
+        {% endif %}
+    </div>
+    <hr>
+
+    <!-- Code to Enter Voter ID, Assign Cluster -->
+    <div class="container text-center">
+        <form id="voter_to_booth" method="POST" action="{% url 'cluster' cluster_id=cluster.id %}">
+            {% csrf_token %}
+            <input type="text" name="voter_id" placeholder="Enter Voter ID">
+            <button type="submit" class="btn btn-primary"> Assign To Booth </button>
+            <input hidden name="cluster" value="{{ cluster.id }}">
+        </form>
+    </div>
+
+    {% for booth in booths %}
+        <div class="container row booth_info_container" style="border:2px solid blue;">
+                    <div class="col-3">
+                        <div class="row">
+                            <h1>{{ booth }}</h1>
+                        </div>
+                        <div class="row">
+                            <h2>{{ booth.location }}</h2>
+                        </div>
+                    </div>
+                    <div class="col-7">
+                        <div class="row">
+                            <h3> Username :{{ booth.username }}</h3>
+                        </div>
+                        <div class="row">
+                            <h3>Password :{{ booth.password }}</h3>
+                        </div>
+                        <div class="row">
+                            <h3> Current Voter : {{ booth.assigned_voter }}</h3>
+                        </div>
+                    </div>
+        </div>
+        <br>
+    {% endfor %}
+{% endblock %}

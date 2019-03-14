@@ -1,0 +1,51 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
+        <li class="nav-item"><a href="{% url 'home_post' %}" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'create_post' %}" class="nav-link"> ADD POST </a></li>
+        <li class="nav-item"><a href="{% url 'remove_post' %}" class="nav-link"> DELETE POST </a></li>
+        <li class="nav-item"><a href="{% url 'all_post' %}" class="nav-link active"> VIEW ALL POSTS </a></li>
+    </ul>
+    <br>
+    <br>
+
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        VIEW ALL POSTS
+    </h1>
+    {%  if posts.count == 0 %}
+        <h1> PLEASE <a href="{% url 'create_post' %}"> ADD POSTS </a></h1>
+
+    {%  else %}
+        <div style="overflow:auto; position:relative;" class="text-center">
+            <table class="table table-fixed">
+            <thead class="thead-dark">
+                <tr>
+                    <th> POST NAME </th>
+                    <th> DESCRIPTION </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {%  for post in posts.all %}
+                <tr>
+                    <td> {{ post.name }}</td>
+                    <td> {{ post.description }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+    {%  endif  %}
+    {% if error %}
+        <br>
+        <p>Status : {{ error }}</p>
+        <br>
+    {%endif%}
+    </div>
+
+{% endblock %}

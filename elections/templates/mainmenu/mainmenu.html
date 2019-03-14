@@ -1,0 +1,24 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+{% if error %}
+<br>
+{{ error }}
+<br>
+{%endif%}
+    <div class="container text-center">
+        <h1> {{  message }}</h1>
+    <h1 class="text-center">
+        FIS-EES ADMIN INTERFACE
+        <br>
+        ELECTION ADMINISTRATION
+    </h1>
+        <div class="d-flex flex-sm-column bd-highlight" style="padding: 20px;" align="center">
+            <a href="{% url 'home_election' %}" class="btn btn-primary"> ELECTIONS </a>
+            <br>
+            <a href="{% url 'home_post' %}" class="btn btn-primary"> POSTS </a>
+            <br>
+            <a href="{% url 'home_votertype' %}" class="btn btn-primary" > VOTER TYPES </a>
+        </div>
+    </div>
+
+{% endblock %}

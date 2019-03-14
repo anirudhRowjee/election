@@ -1,0 +1,65 @@
+{% extends 'admin-base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
+        <li class="nav-item"><a href="{%  url 'home_election'%}" class="nav-link "> BACK </a></li>
+        <li class="nav-item"><a href="{%  url 'create_election'%}" class="nav-link "> ADD ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'activate_election'%}" class="nav-link"> ACTIVATE ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'reset_election'%}" class="nav-link active"> RESET ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'declare_election'%}" class="nav-link "> DECLARE RESULTS OF ELECTION </a></li>
+        <li class="nav-item"><a href="{%  url 'all_election'%}" class="nav-link"> VIEW ALL ELECTIONS </a></li>
+        <li class="nav-item"><a href="{% url 'live_results' %}" class="nav-link "> LIVE RESULTS </a></li>
+    </ul>
+    <br>
+    <br>
+    <div class="container text-center">
+        <h1 class="text-center">
+            FIS-EES ADMIN INTERFACE
+            <br>
+            RESET ELECTIONS
+        </h1>
+        <div class="m-5">
+            <form method="POST" action="{%  url 'reset_election' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <br>
+            <div class="form-group">
+                <label for="choose_elections" style="float:left;"> SELECT ELECTIONS : </label>
+                <select id="choose_elections" class="form-control" name="election_id">
+                    {% for election in elections.all %}
+                        <option value="{{ election.id }}"> {{ election.pretty_name }} </option>
+                    {%  endfor %}
+                </select>
+                <br>
+            </div>
+                <p style="border:2px solid red;" > Are you SURE you want to RESET the ELECTIONS? THIS ACTION CAN NOT BE UNDONE </p>
+                <div class="form-group">
+                    <br>
+                    <br>
+                    <label for="superuser_username" style="float: left;"> To Proceed, Please Enter the SuperUser username.</label>
+                    <input type="text" id="superuser_username" name="superuser_username" class="form-control">
+                    <br>
+                    <label for="superuser_password_1" style="float: left;"> Please Enter the SuperUser password.</label>
+                    <input type="password" id="superuser_password_1" name="superuser_password_1" class="form-control">
+                    <br>
+                    <label for="superuser_password_2" style="float: left;"> Please Enter the SuperUser password again.</label>
+                    <input type="password" id="superuser_password_2" name="superuser_password_2" class="form-control">
+                    <br>
+                    <br>
+                </div>
+                {% if error %}
+                        <br>
+                        <p>Status : {{ error }}</p>
+                        <br>
+                {%endif%}
+                <input class='btn btn-primary' type="submit" value="RESET ELECTIONS">
+            <br><br>
+            </form>
+
+        </div>
+    </div>
+</body>
+{% endblock %}
