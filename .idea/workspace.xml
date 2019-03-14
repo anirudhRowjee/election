@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9cc0526-9bc0-4ea6-bc77-3190561b2ad2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/election/templates/pdf/results.html" beforeDir="false" afterPath="$PROJECT_DIR$/election/templates/pdf/results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elections/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="f9cc0526-9bc0-4ea6-bc77-3190561b2ad2" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,17 +215,6 @@
             <path>
               <item name="election" type="b2602c69:ProjectViewProjectNode" />
               <item name="election" type="462c0819:PsiDirectoryNode" />
-              <item name="elections" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="election" type="462c0819:PsiDirectoryNode" />
-              <item name="elections" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="election" type="b2602c69:ProjectViewProjectNode" />
-              <item name="election" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -367,12 +352,12 @@
       <workItem from="1552468100594" duration="9119000" />
       <workItem from="1552477263680" duration="9148000" />
       <workItem from="1552559920917" duration="1476000" />
-      <workItem from="1552562383587" duration="598000" />
+      <workItem from="1552562383587" duration="2912000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="262072000" />
+    <option name="totallyTimeSpent" value="264386000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -385,13 +370,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.27760968" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.27760968" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49848714" visible="true" weight="0.2633864" />
+      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49848714" visible="true" weight="0.2633864" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5015129" side_tool="true" weight="0.33285093" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3299566" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3299566" />
