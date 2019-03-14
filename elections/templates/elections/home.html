@@ -1,10 +1,14 @@
 {% extends 'admin-base.html' %}
 {% block content %}
-{% if error %}
-<br>
-{{ error }}
-<br>
-{%endif%}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top: 5px;">
+        <li class="nav-item"><a href="#" class="nav-link"> ADMIN MAIN MENU </a></li>
+        <li class="nav-item"><a href="{%  url 'home_election' %}" class="nav-link active"> ELECTIONS </a></li>
+        <li class="nav-item"><a href="{%  url 'home_post' %}" class="nav-link"> POSTS </a></li>
+        <li class="nav-item"><a href="{%  url 'home_votertype' %}" class="nav-link"> VOTER TYPES </a></li>
+    </ul>
+    <br>
+    <br>
+
     <div class="container text-center">
         <h1> {{  message }}</h1>
     <h1 class="text-center">
@@ -12,12 +16,26 @@
         <br>
         ELECTION ADMINISTRATION
     </h1>
-    <a href="/admin/elections/election_ops/create" class="btn btn-primary"> ADD ELECTION </a>
-    <a href="/admin/elections/election_ops/activate" class="btn btn-primary"> ACTIVATE ELECTION </a>
-    <a href="/admin/elections/election_ops/reset" class="btn btn-primary"> RESET ELECTION </a>
-    <a href="/admin/elections/election_ops/declare" class="btn btn-primary"> DECLARE RESULTS OF ELECTION </a>
-    <a href="/admin/elections/election_ops/all" class="btn btn-primary"> VIEW ALL ELECTIONS </a>
-    <a href="{% url 'live_results' %}" class="btn btn-primary"> LIVE RESULTS </a>
+
+        <div class="d-flex flex-sm-column bd-highlight" style="padding: 20px;" align="center">
+            <a href="{%  url 'create_election' %}" class="btn btn-primary"> ADD ELECTION </a>
+            <br>
+            <a href="{%  url 'activate_election' %}" class="btn btn-primary"> ACTIVATE ELECTION </a>
+            <br>
+            <a href="{%  url 'reset_election' %}" class="btn btn-primary"> RESET ELECTION </a>
+            <br>
+            <a href="{%  url 'declare_election' %}" class="btn btn-primary"> DECLARE RESULTS OF ELECTION </a>
+            <br>
+            <a href="{%  url 'all_election' %}" class="btn btn-primary"> VIEW ALL ELECTIONS </a>
+            <br>
+            <a href="{% url 'live_results' %}" class="btn btn-primary"> LIVE RESULTS </a>
+            <br>
+        </div>
+        {% if error %}
+            <br>
+            <p>Status : {{ error }}</p>
+            <br>
+        {%endif%}
     </div>
 
 {% endblock %}

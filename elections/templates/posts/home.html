@@ -5,16 +5,33 @@
 {{ error }}
 <br>
 {%endif%}
-    <div class="container text-center">
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top: 5px;">
+        <li class="nav-item"><a href="#" class="nav-link"> ADMIN MAIN MENU </a></li>
+        <li class="nav-item"><a href="{%  url 'home_election' %}" class="nav-link"> ELECTIONS </a></li>
+        <li class="nav-item"><a href="{%  url 'home_post' %}" class="nav-link active"> POSTS </a></li>
+        <li class="nav-item"><a href="{%  url 'home_votertype' %}" class="nav-link "> VOTER TYPES </a></li>
+    </ul>
+    <br><br>
+    <div class="container-fluid text-center">
         <h1> {{  message }}</h1>
-    <h1 class="text-center">
-        FIS-EES ADMIN INTERFACE
-        <br>
-        POSTS ADMINISTRATION
-    </h1>
-    <a href="/admin/elections/posts/create" class="btn btn-primary"> ADD POST </a>
-    <a href="/admin/elections/posts/remove" class="btn btn-primary"> DELETE POST </a>
-    <a href="/admin/elections/posts/all" class="btn btn-primary"> VIEW ALL POSTS </a>
+        <h1 class="text-center">
+            FIS-EES ADMIN INTERFACE
+            <br>
+            POSTS ADMINISTRATION
+        </h1>
+        <div class="d-flex flex-sm-column bd-highlight" style="padding: 20px;" align="center">
+            <a href="{% url 'create_post' %}" class="btn btn-primary"> ADD POST </a>
+            <br>
+            <a href="{% url 'remove_post' %}" class="btn btn-primary"> DELETE POST </a>
+            <br>
+            <a href="{% url 'all_post' %}" class="btn btn-primary"> VIEW ALL POSTS </a>
+            <br>
+        </div>
+        {% if error %}
+            <br>
+            <p>Status : {{ error }}</p>
+            <br>
+        {%endif%}
     </div>
 
 {% endblock %}
