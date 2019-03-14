@@ -6,10 +6,10 @@
 <br>
 {%endif%}
     <ul class="nav nav-tabs" style="font-size:10px; margin-top: 5px;">
-        <li class="nav-item" ><a href="#" class="nav-link"> BACK </a></li>
-        <li class="nav-item"><a href="{% url 'view' %}" class="nav-link active disabled"> VIEW ALL VOTERS </a></li>
-        <li class="nav-item"><a href="{% url 'populate' %}" class="nav-link"> POPULATE VOTER DATABASE </a></li>
-        <li class="nav-item"><a href="{% url 'delete_v' %}" class="nav-link"> DELETE ALL VOTERS </a></li>
+        <li class="nav-item" ><a href="{% url 'mainmenu_voters' %}" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'view_voters' %}" class="nav-link active disabled"> VIEW ALL VOTERS </a></li>
+        <li class="nav-item"><a href="{% url 'populate_voters' %}" class="nav-link"> POPULATE VOTER DATABASE </a></li>
+        <li class="nav-item"><a href="{% url 'delete_voters' %}" class="nav-link"> DELETE ALL VOTERS </a></li>
     </ul>
 
     <br>
@@ -22,7 +22,7 @@
         VOTER INFORMATION
     </h1>
     {%  if voters.count == 0 %}
-            <form action="{%  url 'populate' %}" id = 'redirect_to_populate'>
+            <form action="{%  url 'populate_voters' %}" id = 'redirect_to_populate'>
             </form>
             <script type="application/javascript">
                 alert("Database is not populated");

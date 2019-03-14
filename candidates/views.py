@@ -10,9 +10,9 @@ candidates = c_models.Candidate.objects
 
 
 @login_required
-
 def view_all(request):
-    return render(request, 'candidates_admin/view_all.html', {'candidates': candidates})
+    posts = e_models.Posts.objects.all()
+    return render(request, 'candidates_admin/view_all.html', {'candidates': candidates, 'posts':posts})
 
 
 @login_required

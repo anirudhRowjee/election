@@ -22,7 +22,7 @@ votertypes_urls = [
     path('create/', views.create_votertype, name='create_votertype'),
     path('home/', views.home_votertype, name='home_votertype'),
     path('remove/', views.remove_votertype, name='remove_votertype'),
-    path('all/', views.all_votertype, name='all_post'),
+    path('all/', views.all_votertype, name='all_votertypes'),
 ]
 
 urlpatterns = [

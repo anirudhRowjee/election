@@ -1,10 +1,10 @@
 {% extends 'admin-base.html' %}
 {% block content %}
     <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
-        <li class="nav-item"><a href="{% url 'home_candidates' %}" class="nav-link"> BACK </a></li>
-        <li class="nav-item"><a href="{% url 'view_all' %}" class="nav-link "> VIEW ALL CANDIDATES</a></li>
-        <li class="nav-item"><a href="{% url 'add' %}" class="nav-link active"> ADD CANDIDATES </a></li>
-        <li class="nav-item"><a href="{% url 'delete' %}" class="nav-link "> DELETE CANDIDATES </a></li>
+        <li class="nav-item"><a href="{% url 'mainmenu_candidates' %}" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'view_all_candidates' %}" class="nav-link "> VIEW ALL CANDIDATES</a></li>
+        <li class="nav-item"><a href="{% url 'add_candidates' %}" class="nav-link active"> ADD CANDIDATES </a></li>
+        <li class="nav-item"><a href="{% url 'delete_candidates' %}" class="nav-link "> DELETE CANDIDATES </a></li>
     </ul>
     <br>
     <br>
@@ -15,7 +15,7 @@
 {%endif%}
 {% if elections.count == 0 %}
     <label> zero elections
-     <form action="{%  url 'mainmenu' %}" id = 'redirect_to_add_elections'>
+     <form action="{%  url 'mainmenu_candidates' %}" id = 'redirect_to_add_elections'>
             </form>
             <script type="application/javascript">
                 alert("You must have an active election to add candidates.");
@@ -29,7 +29,7 @@
             ADD CANDIDATES
         </h1>
         <div class="m-5" style="" align="center">
-            <form method="POST" action="{% url 'add' %}" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'add_candidates' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="form-group">
                     <br>

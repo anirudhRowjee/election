@@ -29,6 +29,10 @@
                         <button type="submit" class="btn btn-primary form_buttons"> LOGIN</button>
                     </div>
                 </form>
+                {% if user.is_authenticated %}
+                    {
+                    <a href="{% url 'home_electionadmin' %}"
+                {% endif %}
             </div>
         </div>
 

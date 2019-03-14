@@ -1,10 +1,10 @@
 {% extends 'admin-base.html' %}
 {% block content %}
     <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
-        <li class="nav-item"><a href="{% url 'home_candidates' %}" class="nav-link"> BACK </a></li>
-        <li class="nav-item"><a href="{% url 'view_all' %}" class="nav-link active"> VIEW ALL CANDIDATES</a></li>
-        <li class="nav-item"><a href="{% url 'add' %}" class="nav-link "> ADD CANDIDATES </a></li>
-        <li class="nav-item"><a href="{% url 'delete' %}" class="nav-link "> DELETE CANDIDATES </a></li>
+        <li class="nav-item"><a href="{% url 'mainmenu_candidates' %}" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'view_all_candidates' %}" class="nav-link active"> VIEW ALL CANDIDATES</a></li>
+        <li class="nav-item"><a href="{% url 'add_candidates' %}" class="nav-link"> ADD CANDIDATES </a></li>
+        <li class="nav-item"><a href="{% url 'delete_candidates' %}" class="nav-link"> DELETE CANDIDATES </a></li>
     </ul>
     <br>
     <br>
@@ -30,7 +30,7 @@
         CANDIDATES INFORMATION
     </h1>
     {%  if candidates.count == 0 %}
-            <form action="{%  url 'add' %}" id = 'redirect_to_add'>
+            <form action="{%  url 'add_candidates' %}" id = 'redirect_to_add'>
             </form>
             <script type="application/javascript">
                 alert("Candidates are not added");

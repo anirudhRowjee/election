@@ -1,10 +1,10 @@
 {% extends 'admin-base.html' %}
 {% block content %}
     <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
-        <li class="nav-item"><a href="{% url 'home_candidates' %}" class="nav-link"> BACK </a></li>
-        <li class="nav-item"><a href="{% url 'view_all' %}" class="nav-link "> VIEW ALL CANDIDATES</a></li>
-        <li class="nav-item"><a href="{% url 'add' %}" class="nav-link "> ADD CANDIDATES </a></li>
-        <li class="nav-item"><a href="{% url 'delete' %}" class="nav-link active"> DELETE CANDIDATES </a></li>
+        <li class="nav-item"><a href="{% url 'mainmenu_candidates' %}" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'view_all_candidates' %}" class="nav-link "> VIEW ALL CANDIDATES</a></li>
+        <li class="nav-item"><a href="{% url 'add_candidates' %}" class="nav-link"> ADD CANDIDATES </a></li>
+        <li class="nav-item"><a href="{% url 'delete_candidates' %}" class="nav-link active"> DELETE CANDIDATES </a></li>
     </ul>
     <br>
     <br>
@@ -16,14 +16,14 @@
         CANDIDATE DELETION
     </h1>
         {%  if candidates.count == 0 %}
-            <form action="{%  url 'add' %}" id="redirect_to_add"></form>
+            <form action="{%  url 'add_candidates' %}" id="redirect_to_add"></form>
             <script type="application/javascript">
                  alert("There are no candidates");
                  document.getElementById('redirect_to_add').submit()
             </script>
         {%  endif %}
         <div class="m-5">
-            <form method="POST" action="{% url 'delete' %}" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'delete_candidates' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <br>
                 <div class="form-group">

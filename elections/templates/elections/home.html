@@ -1,7 +1,7 @@
 {% extends 'admin-base.html' %}
 {% block content %}
     <ul class="nav nav-tabs" style="font-size:10px; margin-top: 5px;">
-        <li class="nav-item"><a href="#" class="nav-link"> ADMIN MAIN MENU </a></li>
+        <li class="nav-item"><a href="{% url 'home_electionadmin' %}" class="nav-link"> ADMIN MAIN MENU </a></li>
         <li class="nav-item"><a href="{%  url 'home_election' %}" class="nav-link active"> ELECTIONS </a></li>
         <li class="nav-item"><a href="{%  url 'home_post' %}" class="nav-link"> POSTS </a></li>
         <li class="nav-item"><a href="{%  url 'home_votertype' %}" class="nav-link"> VOTER TYPES </a></li>
@@ -30,6 +30,7 @@
             <br>
             <a href="{% url 'live_results' %}" class="btn btn-primary"> LIVE RESULTS </a>
             <br>
+
         </div>
         {% if error %}
             <br>

@@ -99,16 +99,17 @@
                                 Log Out
                             </a>
                         </button>
-                        <form id="logout" method="POST" action="{% url 'logout' %}">
+                        <form id="logout" method="POST" action="{% url 'logout_a' %}">
                             {% csrf_token %}
                             <input type="hidden">
                         </form>
 
                     {% else %}
                         <button class="btn btn-primary" style="margin-top: 10px;">
-                            <a class="login_btn" href="{% url 'login' %}">
+                            <a class="login_btn" href="{% url 'login_electionadmin' %}">
                                 Administrator
                             </a>
+
                         </button>
                     {% endif %}
 

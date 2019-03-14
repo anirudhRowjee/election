@@ -80,7 +80,7 @@
 <div class="header" id="main">
     <ul class="navbar">
         <li style="float:left; position: relative;">
-            <a class="navbar-brand" href="{% url 'login' %}">
+            <a class="navbar-brand" href="{% url 'login_electionadmin' %}">
                 <img src="{% static 'assets/logo.jpg' %}" class="d-inline-block align-top" height="50" width="50"
                      style="float:left;">
             </a>
@@ -112,7 +112,7 @@
                             <input type="hidden">
                         </form>
                     {% else %}
-                        <button class="btn btn-primary"><a class="login_btn" href="{% url 'login' %}">Login</a></button>
+                        <button class="btn btn-primary"><a class="login_btn" href="{% url 'login_electionadmin' %}">Login</a></button>
                     {% endif %}
                 </div>
             </div>
