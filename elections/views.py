@@ -220,7 +220,10 @@ def declare_elections(request):
                 voter_total = v_models.Voters.objects.all().count()
                 posts_contested = e_models.Posts.objects.all().count()
                 election = e_models.Election.objects.get(id=election_id)
-                data = {'error': 'declared', 'election': election, 'winners': winners,
+                election.is_active = False
+                election.save()
+                dec_string = "results of election " + str(election.pretty_name) + " Have been declared! "
+                data = {'error': dec_string, 'election': election, 'winners': winners,
                                                             'posts': posts, 'candidates':candidates,
                                                             'voter_turnout': voter_turnout, 'voter_total': voter_total,
                                                             'posts_contested': posts_contested}
@@ -234,5 +237,5 @@ def declare_elections(request):
             return render(request, 'elections/declare.html',
                           {'error': 'PASSWORDS DO NOT MATCH', 'elections': elections})
     else:
-        elections = e_models.Election.objects
+        elections = e_models.Election.objects.filter(is_active=True)
         return render(request, 'elections/declare.html', {'elections':elections})
