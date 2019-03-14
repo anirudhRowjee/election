@@ -3,9 +3,14 @@
     <form method="POST" id="create" style="display:flex; flex-direction:column;" action="{% url 'add_cluster'%}">
         {% csrf_token %}
         <br>
-            {{ form }}
+            {% for field in form %}
+                <div class="form-row w-100 ml-50">
+                    <p class="px-3 text-left" style="">{{ field.label_tag }}</p>
+                    <p>{{ field }}</p>
+                </div>
+            {% endfor %}
         <br>
-        <button type="submit" class="btn btn-primary" data-dismiss="modal"> Create Cluster </button>
+        <button type="submit"  style="" data-dismiss="modal"> Create Cluster </button>
     </form>
 </div>
 
