@@ -1,10 +1,5 @@
 {% extends 'admin-base.html' %}
 {% block content %}
-{% if error %}
-<br>
-{{ error }}
-<br>
-{%endif%}
 {%  if user.is_authenticated %}
    <form action="{% url 'home' %}" id="redirect_to_home">
             </form>
@@ -22,10 +17,14 @@
                 <input class="form-control" style="width:30%;" type="password" name="password" placeholder="password">
                 <br>
                 <br>
-                <input class='btn btn-primary' type="submit" value="login">
+                <p>Status : {{ error }}</p>
+                <br>
+
             </div>
+            <input class='btn btn-primary' type="submit" value="Login" style="width: 20%;">
+            <a href="/" class="btn btn-primary" style="width: 20%;"> Home </a>
         </form>
-        <a href="/" class="btn btn-primary"> Home </a>
+
     </div>
 
 
