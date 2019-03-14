@@ -1,7 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-{% load static %}
-<html>
+{% load staticfiles %}
+<html lang="en">
     <head>
+        <link href="{% static 'assets/logo.jpg' %}" type="image/jpg">
         <title>Results of {{ election.pretty_name }}</title>
         <style type="text/css">
             body {
@@ -31,13 +32,16 @@
                 background-color: lawngreen;
                 padding: 3px;
             }
+
         </style>
     </head>
     <body>
-        <h1> FREEDOM INTERNATIONAL SCHOOL </h1>
-        <h1> ELECTRONIC ELECTION SYSTEM </h1>
-        <h1> RESULTS OF {{ election.pretty_name }}</h1>
-        <h4> DECLARED AT {% now "jS F Y H:i" %}</h4>
+        <div class="img_container">
+            <img src="{% static 'assets/logo.jpg' %}" class="d-inline-block align-top" height="50" width="50"
+                     style="float:left;">
+            <h1> RESULTS OF {{ election.pretty_name }}</h1>
+            <h4> DECLARED AT {% now "jS F Y H:i" %}</h4>
+        </div>
         <hr>
         <div id="election_results">
             <h2> Election name : {{ election.pretty_name }}</h2>
