@@ -12,9 +12,15 @@
         <br>
         CANDIDATE ADMINISTRATION
     </h1>
-    <a href="{% url 'view_all' %}" class="btn btn-primary"> View All Candidates </a>
-    <a href="{% url 'add' %}" class="btn btn-primary"> Add Candidates </a>
-    <a href="{% url 'delete' %}" class="btn btn-primary"> Delete Candidates </a>
+
+
+        <div class="d-flex flex-sm-column bd-highlight" style="padding: 20px;" align="center">
+            <a href="{% url 'view_all' %}" class="btn btn-primary"> View All Candidates </a>
+            <br>
+            <a href="{% url 'add' %}" class="btn btn-primary"> Add Candidates </a>
+            <br>
+            <a href="{% url 'delete' %}" class="btn btn-primary"> Delete Candidates </a>
+        </div>
     </div>
 
 {% endblock %}

@@ -1,10 +1,27 @@
 {% extends 'admin-base.html' %}
 {% block content %}
+    <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
+        <li class="nav-item"><a href="{% url 'home_candidates' %}" class="nav-link"> BACK </a></li>
+        <li class="nav-item"><a href="{% url 'view_all' %}" class="nav-link active"> VIEW ALL CANDIDATES</a></li>
+        <li class="nav-item"><a href="{% url 'add' %}" class="nav-link "> ADD CANDIDATES </a></li>
+        <li class="nav-item"><a href="{% url 'delete' %}" class="nav-link "> DELETE CANDIDATES </a></li>
+    </ul>
+    <br>
+    <br>
 {% if error %}
 <br>
 {{ error }}
 <br>
 {%endif%}
+    <style>
+        .card{
+            border: 1px solid lightgrey;
+        }
+
+        .card:hover {
+            box-shadow: 0 2px 4px 0 grey;
+        }
+    </style>
     <div class="container text-center">
         <h1> {{  message }}</h1>
     <h1 class="text-center">
@@ -20,13 +37,27 @@
                 document.getElementById('redirect_to_add').submit()
             </script>
     {%  else %}
-        {% for candidate in candidates.all %}
-            <div class="inline-group" style="background-color: #79aec8; border:2px solid black;">
-                <img src="{{ candidate.image.url }}" height="100px" width="100px">
-                <h3> {{ candidate.name }}</h3>
-                <p> {{ candidate.slogan }}</p>
-            </div>
-        {% endfor %}
+        <div class="inline-group" align="center">
+            {% for post in posts %}
+                <h1 style="">{{ post }}</h1>
+                {% for candidate in candidates.all %}
+                    {% if candidate.post == post %}
+                        <div class="card w-75 p-3 ml-5" align="center">
+                            <img  src="{{ candidate.image.url }}" height="100px" width="100px">
+                            <h3 class="card-title"> {{ candidate.name }}</h3>
+                            <p class="card-text"> {{ candidate.slogan }}</p>
+                        </div>
+                        <br>
+                        <br>
+                    {% endif %}
+
+                {% endfor %}
+                <br>
+                <br>
+            {%  endfor %}
+        </div>
+
+
     {%  endif  %}
     </div>
 
