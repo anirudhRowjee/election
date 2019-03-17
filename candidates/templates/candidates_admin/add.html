@@ -15,7 +15,7 @@
 {%endif%}
 {% if elections.count == 0 %}
     <label> zero elections
-     <form action="{%  url 'mainmenu_candidates' %}" id = 'redirect_to_add_elections'>
+     <form action="{%  url 'create_election' %}" id = 'redirect_to_add_elections'>
             </form>
             <script type="application/javascript">
                 alert("You must have an active election to add candidates.");
