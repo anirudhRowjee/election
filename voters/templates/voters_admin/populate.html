@@ -23,7 +23,7 @@
     <div class="container-fluid">
         <h1> {{  message }}</h1>
         <div class="m-5">
-            <form method="POST" action="{% url 'populate' %}" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'populate_voters' %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 <br>
                 <div class="text-center">

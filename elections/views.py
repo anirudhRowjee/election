@@ -87,10 +87,10 @@ def reset_elections(request):
                 candidates.save()
 
                 elections = e_models.Election.objects
-                return render(request, 'elections/all.html', {'error': 'ELECTION HAS BEEN RESET','elections': elections})
+                return render(request, 'elections/reset.html', {'error': 'ELECTION HAS BEEN RESET','elections': elections})
             else:
-                posts = e_models.Posts.objects
-                return render(request, 'posts/delete.html',{'error': 'WRONG USERNAME/PASSWORD', 'posts': posts})
+                elections = e_models.Election.objects
+                return render(request, 'elections/reset.html',{'error': 'WRONG USERNAME/PASSWORD', 'elections': elections})
     else:
         elections = e_models.Election.objects
         return render(request, 'elections/reset.html', {'elections':elections})
