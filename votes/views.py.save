@@ -129,12 +129,12 @@ def vote(request, booth_id='None'):
         booth.assigned_voter = None
         booth.save()
         candidates = c_models.Candidate.objects.all().filter(election=election)
-        return render(request, 'votes/vote.html', {'booth': booth, 'candidates': candidates, 'posts': posts, 'notify':'Thank you for Voting!'})
+        return render(request, 'votes/vote.html', {'booth': booth, 'candidates': candidates, '								posts': posts, 'notify':'Thank you for Voting!'})
     else:
         booth = cl_models.Booth.objects.get(id=booth_id)
-	# get booth number as per cluster
-	booth_number = (booth.username.split('_'))[3] 
-        cluster_ic = booth.cluster 
+	# get booth number as per cluster 
+	booth_number = (booth.username.split('_'))[3]
+        cluster_ic = booth.cluster
         election = cluster_ic.election
         candidates = c_models.Candidate.objects.all().filter(election=election)
         posts = []
@@ -142,8 +142,5 @@ def vote(request, booth_id='None'):
             if candidate.post not in posts:
                 posts.append(candidate.post)
         #posts = e_models.Posts.objects.all()
-        return render(request, 'votes/vote.html', {'booth': booth, 'candidates':candidates, 'posts':posts, 'b_no':booth_number,})
-
-
-
+        return render(request, 'votes/vote.html', {'booth': booth, 'candidates':candidates, 'posts':posts, 'b_no':booth_number})
 
