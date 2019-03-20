@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d2e2b8b4-b3fc-4e0c-a569-28c589f10e1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/votes/templates/votes/vote.html" beforeDir="false" afterPath="$PROJECT_DIR$/votes/templates/votes/vote.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/votes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/votes/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="d2e2b8b4-b3fc-4e0c-a569-28c589f10e1b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,8 +43,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/votes/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="134" column="26" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
+            <state relative-caret-position="184">
+              <caret line="144" column="118" selection-start-line="144" selection-start-column="118" selection-end-line="144" selection-end-column="118" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -258,12 +255,12 @@
       <workItem from="1552844017821" duration="133000" />
       <workItem from="1552849125955" duration="599000" />
       <workItem from="1553066569071" duration="1587000" />
-      <workItem from="1553082774449" duration="1219000" />
+      <workItem from="1553082774449" duration="1757000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11685000" />
+    <option name="totallyTimeSpent" value="12223000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -576,8 +573,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/votes/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="134" column="26" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
+        <state relative-caret-position="184">
+          <caret line="144" column="118" selection-start-line="144" selection-start-column="118" selection-end-line="144" selection-end-column="118" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
