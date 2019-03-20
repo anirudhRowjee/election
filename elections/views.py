@@ -62,7 +62,38 @@ def activate_elections(request):
 
 
 def reset_elections(request):
-    pass
+    if request.method == 'POST':
+        uname = request.POST['superuser_username']
+        p1 = request.POST['superuser_password_1']
+        p2 = request.POST['superuser_password_2']
+        if p1 == p2:
+            if auth.authenticate(request, username=uname, password=p1) is not None:
+                election_id = request.POST['election_id']
+                election_tba = e_models.Election.objects.get(id=election_id)
+                # make election is active status = False
+                voters = v_models.Voters.objects.all()
+                # make all voters has voted status to false
+                voters.has_voted = False
+                # clear votes data
+                vote_models.Vote.objects.all().filter(election=election_tba).delete()
+                # clear candidate data
+                candidates = c_models.Candidate.objects.all()
+                for candidate in candidates:
+                    if candidate.election == election_tba:
+                        candidate.votes = 0
+
+                voters.save()
+                election_tba.save()
+                candidates.save()
+
+                elections = e_models.Election.objects
+                return render(request, 'elections/reset.html', {'error': 'ELECTION HAS BEEN RESET','elections': elections})
+            else:
+                elections = e_models.Election.objects
+                return render(request, 'elections/reset.html',{'error': 'WRONG USERNAME/PASSWORD', 'elections': elections})
+    else:
+        elections = e_models.Election.objects
+        return render(request, 'elections/reset.html', {'elections':elections})
 
 
 def all_elections(request):

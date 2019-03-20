@@ -1,10 +1,5 @@
 {% extends 'admin-base.html' %}
 {% block content %}
-{% if error %}
-<br>
-{{ error }}
-<br>
-{%endif%}
     <ul class="nav nav-tabs" style="font-size:10px; margin-top:5px;" align="center">
         <li class="nav-item"><a href="{%  url 'home_election'%}" class="nav-link "> BACK </a></li>
         <li class="nav-item"><a href="{%  url 'create_election'%}" class="nav-link "> ADD ELECTION </a></li>
@@ -31,25 +26,43 @@
                  document.getElementById('redirect_to_add').submit()
             </script>
         {%  endif %}
+    <div class="m-5">
         <form method="POST" action="{% url 'activate_election' %}" enctype="multipart/form-data">
             {% csrf_token %}
-            <p> Select Election  </p>
-            <select name="election_id">
-                {% for election in elections.all %}
-                    <option value="{{ election.id }}"> {{ election.pretty_name }} </option>
-                {%  endfor %}
-            </select>
-            <p> To Proceed, Please Enter the SuperUser username.</p>
-            <input type="text" name="superuser_username">
-            <p> Please Enter the SuperUser password.</p>
-            <input type="password" name="superuser_password_1">
-            <p> Please Enter the SuperUser password again.</p>
-            <input type="password" name="superuser_password_2">
             <br>
-            </select>
-        <br>
-            <input class='btn btn-primary' type="submit" value="ACTIVATE ELECTION">
+            <div class="form-group">
+                <label for="choose_elections" style="float:left;"> SELECT ELECTIONS : </label>
+                <select id="choose_elections" class="form-control" name="election_id">
+                    {% for election in elections.all %}
+                        <option value="{{ election.id }}"> {{ election.pretty_name }} </option>
+                    {%  endfor %}
+                </select>
+                <br>
+            </div>
+            <div class="form-group">
+                <br>
+                <br>
+                <label for="superuser_username" style="float: left;"> To Proceed, Please Enter the SuperUser username.</label>
+                <input type="text" id="superuser_username" name="superuser_username" class="form-control">
+                <br>
+                <label for="superuser_password_1" style="float: left;"> Please Enter the SuperUser password.</label>
+                <input type="password" id="superuser_password_1" name="superuser_password_1" class="form-control">
+                <br>
+                <label for="superuser_password_2" style="float: left;"> Please Enter the SuperUser password again.</label>
+                <input type="password" id="superuser_password_2" name="superuser_password_2" class="form-control">
+                <br>
+                <br>
+            </div>
+            {% if error %}
+                    <br>
+                    <p>Status : {{ error }}</p>
+                    <br>
+            {%endif%}
+            <input class='btn btn-primary' type="submit" value="ACTIVATE ELECTIONS">
+            <br><br>
         </form>
+    </div>
+
 
     </div>
 
