@@ -2,21 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2e2b8b4-b3fc-4e0c-a569-28c589f10e1b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/images/ABHAY_BESTRAPALLI.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/images/ADITI_YOGESH.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/images/ADITI_YOGESH_eVYCHP5.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/images/SAANVI_.N._BALA.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/images/YASH_GARG.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/images/YOGITHA_REDDY.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/images/school_election_symbol_-_Copy.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/logos/YOGITA.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/logos/aditi_logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/logos/aditi_logo_DvUrdKI.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/logos/saanvi_logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/logos/school_election_symbol_-_Copy.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/logos/school_election_symbol_-_Copy_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/media/candidates/logos/yash_logo.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/votes/views.py.save" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/votes/templates/votes/vote.html" beforeDir="false" afterPath="$PROJECT_DIR$/votes/templates/votes/vote.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/votes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/votes/views.py" afterDir="false" />
     </list>
@@ -58,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/votes/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-88">
-              <caret line="135" column="42" selection-start-line="135" selection-start-column="42" selection-end-line="135" selection-end-column="42" />
+            <state relative-caret-position="23">
+              <caret line="134" column="26" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -70,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/votes/templates/votes/vote.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="28" column="80" selection-start-line="28" selection-start-column="80" selection-end-line="28" selection-end-column="80" />
+            <state relative-caret-position="23">
+              <caret line="28" column="64" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
             </state>
           </provider>
         </entry>
@@ -157,8 +142,8 @@
         <option value="$PROJECT_DIR$/election/templates/base.html" />
         <option value="$PROJECT_DIR$/votes/templates/votes/home.html" />
         <option value="$PROJECT_DIR$/candidates/templates/candidates_admin/add.html" />
-        <option value="$PROJECT_DIR$/votes/views.py" />
         <option value="$PROJECT_DIR$/votes/templates/votes/vote.html" />
+        <option value="$PROJECT_DIR$/votes/views.py" />
       </list>
     </option>
   </component>
@@ -179,6 +164,11 @@
             <path>
               <item name="election" type="b2602c69:ProjectViewProjectNode" />
               <item name="election" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="election" type="b2602c69:ProjectViewProjectNode" />
+              <item name="election" type="462c0819:PsiDirectoryNode" />
+              <item name="candidates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="election" type="b2602c69:ProjectViewProjectNode" />
@@ -268,22 +258,22 @@
       <workItem from="1552844017821" duration="133000" />
       <workItem from="1552849125955" duration="599000" />
       <workItem from="1553066569071" duration="1587000" />
-      <workItem from="1553082774449" duration="567000" />
+      <workItem from="1553082774449" duration="1219000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11033000" />
+    <option name="totallyTimeSpent" value="11685000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.30484116" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.30484116" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49848714" visible="true" weight="0.3487699" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49848714" visible="true" weight="0.3487699" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5015129" side_tool="true" weight="0.33285093" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3299566" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3299566" />
@@ -577,20 +567,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/votes/views.py">
+    <entry file="file://$PROJECT_DIR$/votes/templates/votes/vote.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-88">
-          <caret line="135" column="42" selection-start-line="135" selection-start-column="42" selection-end-line="135" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="23">
+          <caret line="28" column="64" selection-start-line="28" selection-start-column="64" selection-end-line="28" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/votes/templates/votes/vote.html">
+    <entry file="file://$PROJECT_DIR$/votes/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="28" column="80" selection-start-line="28" selection-start-column="80" selection-end-line="28" selection-end-column="80" />
+        <state relative-caret-position="23">
+          <caret line="134" column="26" selection-start-line="134" selection-start-column="26" selection-end-line="134" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
