@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2e2b8b4-b3fc-4e0c-a569-28c589f10e1b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/electionadmin/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/electionadmin/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/elections/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/elections/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/electionadmin/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
+            <state relative-caret-position="993">
               <caret line="90" selection-start-line="90" selection-end-line="90" />
               <folding>
                 <element signature="e#26#75#0" expanded="true" />
@@ -49,10 +49,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/elections/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
+            <state relative-caret-position="598">
               <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -102,11 +102,11 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="25" column="96" selection-start-line="25" selection-start-column="96" selection-end-line="25" selection-end-column="96" />
+            <state relative-caret-position="182">
+              <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -143,7 +143,6 @@
         <option value="$PROJECT_DIR$/elections/templates/mainmenu/mainmenu.html" />
         <option value="$PROJECT_DIR$/elections/templates/elections/home.html" />
         <option value="$PROJECT_DIR$/voters/templates/voters_admin/mainmenu.html" />
-        <option value="$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html" />
         <option value="$PROJECT_DIR$/election/templates/base.html" />
         <option value="$PROJECT_DIR$/votes/templates/votes/home.html" />
         <option value="$PROJECT_DIR$/candidates/templates/candidates_admin/add.html" />
@@ -151,6 +150,7 @@
         <option value="$PROJECT_DIR$/votes/views.py" />
         <option value="$PROJECT_DIR$/electionadmin/views.py" />
         <option value="$PROJECT_DIR$/elections/views.py" />
+        <option value="$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html" />
       </list>
     </option>
   </component>
@@ -175,6 +175,19 @@
             <path>
               <item name="election" type="b2602c69:ProjectViewProjectNode" />
               <item name="election" type="462c0819:PsiDirectoryNode" />
+              <item name="electionadmin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="election" type="b2602c69:ProjectViewProjectNode" />
+              <item name="election" type="462c0819:PsiDirectoryNode" />
+              <item name="electionadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="election" type="b2602c69:ProjectViewProjectNode" />
+              <item name="election" type="462c0819:PsiDirectoryNode" />
+              <item name="electionadmin" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="electionadmin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -270,22 +283,22 @@
       <workItem from="1552844017821" duration="133000" />
       <workItem from="1552849125955" duration="599000" />
       <workItem from="1553066569071" duration="1587000" />
-      <workItem from="1553082774449" duration="2559000" />
+      <workItem from="1553082774449" duration="3687000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13025000" />
+    <option name="totallyTimeSpent" value="14153000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.30484116" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.30484116" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49848714" visible="true" weight="0.3487699" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49848714" visible="true" weight="0.3487699" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5015129" side_tool="true" weight="0.33285093" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3299566" />
       <window_info anchor="bottom" id="Python Console" order="4" weight="0.3299566" />
@@ -545,13 +558,6 @@
     <entry file="file://$PROJECT_DIR$/votes/templates/votes/director.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="25" column="96" selection-start-line="25" selection-start-column="96" selection-end-line="25" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/election/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -579,9 +585,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/elections/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/electionadmin/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
+        <state relative-caret-position="993">
           <caret line="90" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="e#26#75#0" expanded="true" />
@@ -589,13 +605,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/elections/views.py">
+    <entry file="file://$PROJECT_DIR$/electionadmin/templates/electionadmin/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="86" lean-forward="true" selection-start-line="86" selection-end-line="86" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="182">
+          <caret line="17" column="43" lean-forward="true" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
         </state>
       </provider>
     </entry>

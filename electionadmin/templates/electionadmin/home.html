@@ -15,7 +15,7 @@
     <br>
     <br>
     {%  if user.is_authenticated %}
-        <h2> Welcome, {{ user }}</h2>
+        <h2> Welcome, {{ user|upper }}</h2>
         <div class="d-flex flex-sm-column bd-highlight" style="padding: 20px;" align="center">
             <a href="/admin/voters/mainmenu" class="btn btn-primary"> Voters </a>
             <br>
