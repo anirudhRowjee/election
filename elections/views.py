@@ -10,6 +10,7 @@ from election.utils import render_to_pdf
 # Create your views here.
 from candidates import models as c_models
 from voters import models as v_models
+from votes import models as vote_models
 
 @login_required()
 def home(request):
@@ -70,10 +71,11 @@ def reset_elections(request):
             if auth.authenticate(request, username=uname, password=p1) is not None:
                 election_id = request.POST['election_id']
                 election_tba = e_models.Election.objects.get(id=election_id)
-                # make election is active status = False
                 voters = v_models.Voters.objects.all()
                 # make all voters has voted status to false
-                voters.has_voted = False
+                for voter in voters:
+                    voter.has_voted = False
+                    voter.save()
                 # clear votes data
                 vote_models.Vote.objects.all().filter(election=election_tba).delete()
                 # clear candidate data
@@ -81,13 +83,10 @@ def reset_elections(request):
                 for candidate in candidates:
                     if candidate.election == election_tba:
                         candidate.votes = 0
-
-                voters.save()
-                election_tba.save()
-                candidates.save()
+                        candidate.save()
 
                 elections = e_models.Election.objects
-                return render(request, 'elections/reset.html', {'error': 'ELECTION HAS BEEN RESET','elections': elections})
+                return render(request, 'elections/reset.html', {'error': 'ELECTION HAS BEEN RESET', 'elections': elections})
             else:
                 elections = e_models.Election.objects
                 return render(request, 'elections/reset.html',{'error': 'WRONG USERNAME/PASSWORD', 'elections': elections})
