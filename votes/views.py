@@ -132,7 +132,8 @@ def vote(request, booth_id='None'):
         return render(request, 'votes/vote.html', {'booth': booth, 'candidates': candidates, 'posts': posts, 'notify':'Thank you for Voting!'})
     else:
         booth = cl_models.Booth.objects.get(id=booth_id)
-        b_no = (booth.username.split('_'))[3]
+	    #booth_meta_list = booth.username.split('_')
+        #booth_number = booth_meta_list[3]
         cluster_ic = booth.cluster
         election = cluster_ic.election
         candidates = c_models.Candidate.objects.all().filter(election=election)
@@ -142,4 +143,7 @@ def vote(request, booth_id='None'):
                 posts.append(candidate.post)
         #posts = e_models.Posts.objects.all()
         return render(request, 'votes/vote.html', {'booth': booth, 'candidates':candidates, 'posts':posts, 'b_no':b_no})
+
+
+
 
