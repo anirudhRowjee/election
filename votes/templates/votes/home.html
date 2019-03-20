@@ -8,6 +8,9 @@
             }
         </style>
     </head>
+    {% if message %}
+        <p style="border: 2px solid red;"> {{ message }}</p>
+    {% endif %}
     <div class="container text-center" style="padding:5%;">
         <div class="row">
             <div class="col-5">
@@ -16,7 +19,17 @@
             <div class="col-5" id="heading">
                 <h1>ELECTRONIC ELECTION SYSTEM </h1>
                 {% if user.is_authenticated %}
-                    <a href="{% url 'home_electionadmin' %}" class="btn btn-success"> Go To Admin Page </a>
+                    {% if group %}
+                        <p> Here by Mistake? </p>
+                        {% if group == 'vote' %}
+                            <a href="{% url 'vote' booth_id=identifier  %}" class="btn btn-success"> Take me back</a>
+                        {% elif group == 'cluster' %}
+                            <a href="{% url 'cluster' cluster_id=identifier %}" class="btn btn-success"> Take me Back</a>
+                        {% endif %}
+                    {% else %}
+                        <a href="{% url 'home_electionadmin' %}" class="btn btn-success"> Go To Admin Page </a>
+                    {% endif %}
+
                 {% else %}
                     <hr>
                 <form action="{% url 'runtime_mainmenu' %}" method='POST'>

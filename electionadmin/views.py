@@ -8,14 +8,19 @@ from elections.models import VoterTypes, VoterLists
 from django.contrib.auth.decorators import login_required
 import csv
 from datetime import datetime
+from django.contrib.auth.models import User, Group
+from clustermaster import models as c_models
 
 
 def is_admin(user):
-    return user.groups.filter(name='Superuser').exists()
+    superusers = Group.objects.get(name="Superusers").user_set.all()
+    # print("superusers ", superusers)
+    if user in superusers:
+        return True
+    else:
+        return False
 
 # Create your views here.
-def redirect_to_voters(request):
-    return redirect('')
 
 
 def login(request):
@@ -38,7 +43,20 @@ def logout(request):
 
 @login_required()
 def home(request):
-    return render(request, 'electionadmin/home.html')
+    if is_admin(request.user):
+        return render(request, 'electionadmin/home.html')
+    else:
+        username_meta = request.user.username.split('_')
+        if len(username_meta) == 2:
+            group = username_meta[0]
+            identifier = username_meta[1]
+        if len(username_meta) == 4:
+            group = 'vote'
+            username = request.user.username
+            booth = c_models.Booth.objects.get(username=username)
+            identifier = booth.id
+        return render(request, 'votes/home.html', {'message': 'You do not have access to this page', 'group':group,
+                                                   'identifier':identifier})
 
 
 @login_required(login_url='electionadmin/login.html')
