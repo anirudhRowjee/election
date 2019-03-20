@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    {%  if booth.assigned_voter is None %}
+        <meta http-equiv="refresh" content="3"/>
+        <script type="application/javascript">
+            document.body.style.backgroundColor = 'red';
+        </script>
+    {% else %}
+        <script type="application/javascript">
+            document.body.style.backgroundColor = 'green';
+        </script>
+    {% endif %}
+
+{% if notify %}
+    <script type="application/javascript">
+        var c = window.confirm({{ notify }})
+        if(c == true){
+            location.reload()
+        }
+    </script>
+{% endif %}
+
+
+{{ error }}
+    <div class="text-center">
+        <br>
+        <p style="font-size:150px; color:white;"> Booth {{ booth_no }}</p>
+        <br>
+        <p id='error'></p>
+        <p hidden id="voterid">{{ booth.assigned_voter.voter_id }}</p>
+        <button class="btn btn-primary" id='authtrigger' onclick="authvoter()"> Begin Voting</button>
+    </div>
+
+    <style>
+        .logo {
+            width: 120px;
+            height:auto;
+        }
+
+        /* candidate 1 name */
+        .candidate_namelbl {
+            background-color: transparent;
+            border: 1px grey;
+            font-size: 40px;
+        }
+        .candidate_statuslbl {
+            font-size: 15px;
+        }
+
+        /* Candidate Card */
+        .candidate_box{
+            display: inline;
+        }
+
+        /* Candidate Name label */
+        .candidate_box label {
+            width:100%;
+        }
+
+
+        .p_candidate_btn{
+            display: none;
+        }
+
+        /* Radio Button */
+        .p_candidate_input {
+            margin: 10px;
+            padding: 20px;
+            height: 200px;
+            transition: 0.4s ease;
+        }
+
+        /* When the candidate radio button is clicked then show shadow */
+        .p_candidate_input:hover {
+            cursor: pointer;
+        }
+
+        /* When the candidate radio button is clicked then show shadow */
+        .p_candidate_btn:checked + .p_candidate_input {
+            box-shadow: 0 0 3px 3px green;
+
+        }
+        .p_candidate_btn:not(:checked) + .p_candidate_input {
+            border: 3px solid red;
+
+        }
+
+        .post_box {
+            border: 1px solid grey;
+            margin-top: 40px;
+        }
+
+        .voting_grid {
+            display: grid;
+            grid-template-rows: auto auto;
+            grid-template-columns: auto auto;
+            column-gap: 20px;
+        }
+    </style>
+
+    <script type="application/javascript">
+
+        function authvoter() {
+            var o_voterid = document.getElementById('voterid').innerText;
+            var u_voterid = prompt('Please Enter the Voter ID');
+            if (o_voterid == u_voterid){
+                document.getElementById('voterinterface').style.display = 'block';
+                document.getElementById('error').style.display = 'none';
+                document.getElementById('authtrigger').style.display = 'none';
+            }
+            else{
+                document.getElementById('voterinterface').style.display = 'none';
+                document.getElementById('error').innerHTML = 'YOU HAVE NOT BEEN ASSIGNED THIS BOOTH';
+            }
+        }
+
+        function StopVotingShowThanks(){
+            document.getElementById('voterinterface').style.display = 'none';
+            alert('Thank you for voting!');
+        }
+    </script>
+
+    <div id="voterinterface" class="voterinterface" style="display: none;  background-color: white;">
+        <div>
+        <form action="{% url 'vote' booth_id=booth.id %}" method="POST">
+            <input hidden name="voterid" value="{{ booth.assigned_voter.voter_id }}">
+            <div class="container voting_grid">
+                {% csrf_token %}
+                {% for post in posts %}
+                    <! for each post>
+                    <div class="col-lg post_box">
+                        <h2 class="text-center">{{ post }}</h2>
+                        <! for each of the posts each candidate gets a box>
+                        <div>
+                            {% for candidate in candidates %}
+                                {%  if candidate.post == post %}
+                                        <! the division for each candidate>
+                                        <div class="candidate_box">
+                                            <label>
+                                                <input
+                                                        type="radio"
+                                                        name="{{ post.id }}"
+                                                        class="p_candidate_btn"
+                                                        value="{{ candidate.id }}"
+                                                        required="required"
+                                                >
+                                                <div class="p_candidate_input">
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <img src="{{ candidate.logo.url }}" class="img-fluid logo" height="60px" width="200px"> <br><br>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label class="candidate_namelbl">{{ candidate.name }}</label>
+                                                            <label class="candidate_statuslbl">{{ candidate.slogan }}</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </label>
+                                        </div>
+                                 {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <br><br>
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit" onclick="StopVotingShowThanks()">VOTE NOW</button>
+            </div>
+
+            <br><br>
+            <br><br>
+        </form>
+    </div>
+
+    </div>
+
+{% endblock %}

@@ -142,7 +142,7 @@ def vote(request, booth_id='None'):
             if candidate.post not in posts:
                 posts.append(candidate.post)
         #posts = e_models.Posts.objects.all()
-        return render(request, 'votes/vote.html', {'booth': booth, 'candidates':candidates, 'posts':posts})
+        return render(request, 'votes/vote.html', {'booth': booth, 'candidates':candidates, 'posts':posts, 'b_no':b_no})
 
 
 
