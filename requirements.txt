@@ -1,4 +1,4 @@
-Django==2.1.5
+Django==2.2.24
 gunicorn==19.9.0
 html5lib==1.0.1
 mysqlclient==1.4.1
